@@ -68,6 +68,16 @@ main {
     animation: fadeIn 1.5s ease;
 }
 
+/* Estilo para a imagem de perfil */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-bottom: 20px;
+}
+
 .container h1 {
     margin-bottom: 20px;
     font-size: 3em;
@@ -87,6 +97,42 @@ main {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Seção de Contato */
+.section-contato {
+    background: #1f1c2c;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section-contato .container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-contato h2 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 2em;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #00aced;
 }
 
 /* Responsividade */
