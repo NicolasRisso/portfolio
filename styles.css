@@ -1,35 +1,44 @@
-/* RESET E VARIÁVEIS */
+/* RESET & VARIABLES */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Color Variables */
 :root {
-    --highlight: #3498db;       /* Azul claro para destaque */
-    --highlight-hover: #2980b9; /* Azul um pouco mais escuro para hover */
-    --bg-dark: #121212;
-    --section-bg: #1f1c2c;
-    --container-bg: rgba(0, 0, 0, 0.7);
+    --white: #ffffff;                          /* White */
+    --highlight: #36c4d0;                        /* Light blue for highlights */
+    --highlight-hover: #2eaabf;                  /* Slightly darker blue for hover */
+    --bg-dark-blue: #036666;                     /* Dark blue background variant */
+    --bg-darkest-blue: #05343c;                  /* Darkest blue variant */
+    --bg-dark: #1D1E1E;                          /* Dark background */
+    --section-bg: #131314;                       /* Section background */
+    --section-bg-linear: linear-gradient(45deg, var(--bg-dark-blue), var(--highlight)); /* Gradient background for sections */
+    --container-bg: rgba(0, 0, 0, 0.7);           /* Container background */
+    --gradient-end-sobre: #01c4d7;                /* Ending color for "Sobre" section gradient */
+    --gradient-end-portfolio: #124d58;            /* Ending color for Portfolio section gradient */
+    --navbar-bg: rgba(0, 0, 0, 0.8);              /* Navbar background */
+    --navbar-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Navbar box shadow */
 }
 
-/* BASE */
+/* BASE STYLES */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #fff;
+    color: var(--white);
     background-color: var(--bg-dark);
     line-height: 1.6;
 }
 
-/* NAVBAR */
+/* NAVIGATION */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--navbar-bg);
     padding: 15px 0;
     z-index: 100;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--navbar-box-shadow);
 }
 
 .nav-links {
@@ -44,7 +53,7 @@ body {
 
 .nav-links li a {
     text-decoration: none;
-    color: #fff;
+    color: var(--white);
     font-size: 18px;
     transition: color 0.3s ease;
 }
@@ -53,67 +62,71 @@ body {
     color: var(--highlight);
 }
 
-/* Espaço para o conteúdo não ficar oculto pela navbar */
+/* MAIN CONTENT SPACE (to avoid overlap with fixed navbar) */
 main {
-    padding-top: 70px;
+    padding-top: 60px;
 }
 
-/* SEÇÕES GERAIS */
+/* GENERAL SECTIONS */
 .section-sobre,
 .section-portfolio,
 .section-jogos,
-.section-contato {
-    padding: 60px 20px;
+.section-contato,
+.section-curiosidades {
+    padding: 40px 20px;
     background: var(--section-bg);
 }
 
-/* Seção Sobre Mim com fundo em gradiente */
+/* "SOBRE" SECTION - Gradient Background */
 .section-sobre {
-    min-height: 100vh;
+    min-height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--section-bg), #928dab);
+    background: linear-gradient(135deg, var(--bg-darkest-blue), var(--gradient-end-sobre));
 }
 
-/* Seção do Botão do Portfolio */
+/* PORTFOLIO BUTTON SECTION */
 .section-portfolio {
     min-height: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--section-bg), #928dab);
+    background: linear-gradient(135deg, var(--section-bg), var(--gradient-end-portfolio));
     margin-top: 20px;
 }
 
-.section-curiosidades{
+/* "CURIOSIDADES" SECTION */
+.section-curiosidades {
     min-height: 20vh;
+    display: flex;
     align-items: center;
     justify-content: center;
-    display: flex;
+    background: var(--section-bg-linear);
 }
 
-/* CONTAINER PADRÃO */
+/* CONTAINER STYLES */
 .container {
     background: var(--container-bg);
     padding: 40px;
     border-radius: 10px;
     max-width: 800px;
     text-align: center;
+    margin: 0 auto;
     animation: fadeIn 1.5s ease;
 }
 
-/* IMAGEM DE PERFIL */
+/* PROFILE IMAGE */
 .profile-img {
     width: 150px;
     height: 150px;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid #fff;
+    border: 3px solid var(--white);
     margin-bottom: 20px;
 }
 
-/* TÍTULOS E TEXTOS */
+/* HEADINGS & TEXT */
 .container h1 {
     margin-bottom: 20px;
     font-size: 3em;
@@ -123,7 +136,7 @@ main {
     font-size: 1.2em;
 }
 
-/* Animação de fade-in */
+/* FADE-IN ANIMATION */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -135,13 +148,13 @@ main {
     }
 }
 
-/* BOTÃO DO PORTFOLIO */
+/* PORTFOLIO BUTTON */
 .btn-portfolio {
     display: inline-block;
     margin-top: 20px;
     padding: 15px 30px;
     background-color: var(--highlight);
-    color: #fff;
+    color: var(--white);
     font-size: 1.2em;
     text-decoration: none;
     border-radius: 5px;
@@ -152,23 +165,24 @@ main {
     background-color: var(--highlight-hover);
 }
 
-/* Seção Meus Jogos Favoritos (não colapsável) */
+/* GAMES SECTION */
 .section-jogos {
-    background: var(--section-bg);
+    display: flex;
     align-items: center;
     justify-content: center;
-    display: flex;
+    background: var(--section-bg);
 }
 
+/* SECTION TITLE */
 .section-title {
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 2em;
-    color: var(--highlight);
+    color: var(--white);
     margin-bottom: 20px;
 }
 
-/* CARROSSEL */
+/* GENERAL CAROUSEL */
 .carousel {
     overflow: hidden;
     position: relative;
@@ -202,17 +216,52 @@ main {
     }
 }
 
-/* Seção de Contato */
+/* CAROUSEL FOR "CURIOSIDADES" SECTION */
+/* This carousel has a faster animation duration (15s) */
+.carousel-curiosidades {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.carousel-track-curiosidades {
+    display: flex;
+    width: 200%;
+    animation: scrollCuriosidades 15s linear infinite;
+}
+
+.carousel-track-curiosidades:hover {
+    animation-play-state: paused;
+}
+
+.carousel-track-curiosidades img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+@keyframes scrollCuriosidades {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-25%);
+    }
+}
+
+/* CONTACT SECTION */
 .section-contato {
     background: var(--section-bg);
-    padding: 60px 20px;
+    padding: 30px 20px;
     text-align: center;
 }
 
 .section-contato .container {
     background: var(--container-bg);
-    padding: 40px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 20px;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -222,7 +271,7 @@ main {
     font-size: 2.5em;
 }
 
-/* Ícones Sociais */
+/* SOCIAL ICONS */
 .social-icons {
     display: flex;
     justify-content: center;
@@ -230,7 +279,7 @@ main {
 }
 
 .social-icons a {
-    color: #fff;
+    color: var(--white);
     font-size: 2em;
     transition: color 0.3s ease;
 }
@@ -239,10 +288,14 @@ main {
     color: var(--highlight);
 }
 
-/* RESPONSIVIDADE */
+/* RESPONSIVE STYLES */
 @media (max-width: 768px) {
     .nav-links li {
         margin: 0 15px;
+    }
+    .container {
+        width: 90%;
+        margin: 0 auto;
     }
     .container h1 {
         font-size: 2.5em;
