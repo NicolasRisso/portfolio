@@ -1,18 +1,27 @@
-/* Reset básico */
+/* RESET E VARIÁVEIS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --highlight: #3498db;       /* Azul claro para destaque */
+    --highlight-hover: #2980b9; /* Azul um pouco mais escuro para hover */
+    --bg-dark: #121212;
+    --section-bg: #1f1c2c;
+    --container-bg: rgba(0, 0, 0, 0.7);
+}
+
+/* BASE */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #fff;
-    background-color: #121212;
+    background-color: var(--bg-dark);
     line-height: 1.6;
 }
 
-/* Barra de navegação fixa */
+/* NAVBAR */
 .navbar {
     position: fixed;
     top: 0;
@@ -41,26 +50,52 @@ body {
 }
 
 .nav-links li a:hover {
-    color: #00aced;
+    color: var(--highlight);
 }
 
-/* Espaço para evitar que o conteúdo fique escondido atrás da navbar */
+/* Espaço para o conteúdo não ficar oculto pela navbar */
 main {
     padding-top: 70px;
 }
 
-/* Seção Sobre Mim */
+/* SEÇÕES GERAIS */
+.section-sobre,
+.section-portfolio,
+.section-jogos,
+.section-contato {
+    padding: 60px 20px;
+    background: var(--section-bg);
+}
+
+/* Seção Sobre Mim com fundo em gradiente */
 .section-sobre {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #1f1c2c, #928dab);
-    padding: 60px 20px;
+    background: linear-gradient(135deg, var(--section-bg), #928dab);
 }
 
+/* Seção do Botão do Portfolio */
+.section-portfolio {
+    min-height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--section-bg), #928dab);
+    margin-top: 20px;
+}
+
+.section-curiosidades{
+    min-height: 20vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+/* CONTAINER PADRÃO */
 .container {
-    background: rgba(0, 0, 0, 0.7);
+    background: var(--container-bg);
     padding: 40px;
     border-radius: 10px;
     max-width: 800px;
@@ -68,7 +103,7 @@ main {
     animation: fadeIn 1.5s ease;
 }
 
-/* Estilo para a imagem de perfil */
+/* IMAGEM DE PERFIL */
 .profile-img {
     width: 150px;
     height: 150px;
@@ -78,6 +113,7 @@ main {
     margin-bottom: 20px;
 }
 
+/* TÍTULOS E TEXTOS */
 .container h1 {
     margin-bottom: 20px;
     font-size: 3em;
@@ -87,7 +123,7 @@ main {
     font-size: 1.2em;
 }
 
-/* Animação simples de fade-in */
+/* Animação de fade-in */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -99,15 +135,82 @@ main {
     }
 }
 
+/* BOTÃO DO PORTFOLIO */
+.btn-portfolio {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: var(--highlight);
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-portfolio:hover {
+    background-color: var(--highlight-hover);
+}
+
+/* Seção Meus Jogos Favoritos (não colapsável) */
+.section-jogos {
+    background: var(--section-bg);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    color: var(--highlight);
+    margin-bottom: 20px;
+}
+
+/* CARROSSEL */
+.carousel {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.carousel-track {
+    display: flex;
+    width: 200%;
+    animation: scroll 40s linear infinite;
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.carousel-track img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 /* Seção de Contato */
 .section-contato {
-    background: #1f1c2c;
+    background: var(--section-bg);
     padding: 60px 20px;
     text-align: center;
 }
 
 .section-contato .container {
-    background: rgba(0, 0, 0, 0.7);
+    background: var(--container-bg);
     padding: 40px;
     border-radius: 10px;
     max-width: 800px;
@@ -119,6 +222,7 @@ main {
     font-size: 2.5em;
 }
 
+/* Ícones Sociais */
 .social-icons {
     display: flex;
     justify-content: center;
@@ -132,20 +236,22 @@ main {
 }
 
 .social-icons a:hover {
-    color: #00aced;
+    color: var(--highlight);
 }
 
-/* Responsividade */
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
     .nav-links li {
         margin: 0 15px;
     }
-
     .container h1 {
         font-size: 2.5em;
     }
-
     .container p {
         font-size: 1em;
+    }
+    .btn-portfolio {
+        font-size: 1em;
+        padding: 12px 25px;
     }
 }

@@ -3,56 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfolio - Sobre Mim</title>
+    <title>Portfolio - Sobre Mim</title>
     <!-- Font Awesome para os ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Cabeçalho com a barra de navegação fixa -->
+<!-- Header com a barra de navegação fixa -->
 <header>
     <nav class="navbar">
         <ul class="nav-links">
-            <li><a href="#sobre-mim">Sobre Mim</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contato">Contato</a></li>
+            <!-- Links para as páginas separadas -->
+            <li><a href="sobre-mim.html">Sobre Mim</a></li>
+            <li><a href="educacao.html">Educação</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
         </ul>
     </nav>
 </header>
 
 <!-- Conteúdo Principal -->
 <main>
-    <!-- Seção Sobre Mim -->
+    <!-- Seção Sobre Mim e Botão juntos -->
     <section id="sobre-mim" class="section-sobre">
         <div class="container">
-            <!-- Imagem de perfil -->
-            <img src="assets/img/mainpicture.png" alt="Foto do Nicolas Risso" class="profile-img">
-            <h1>Olá, eu sou o Nicolas Risso</h1>
+            <!-- Imagem de perfil e texto -->
+            <img src="assets/img/mainpicture.png" alt="Foto de Perfil" class="profile-img">
+            <h1>Olá, eu sou Nicolas Risso</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt at leo sit amet feugiat.
-                Proin faucibus lacus ac elit aliquet dapibus. Suspendisse non libero efficitur, posuere felis et, blandit sem.
-                Proin id dolor ultricies, pretium dui vitae, auctor est. Nunc feugiat erat ut libero mollis sollicitudin.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sou um Programador de Jogos especializado em C++ e Unreal Engine 5, e minha jornada no desenvolvimento começou aos 14 anos.
+                Ao longo dos anos, transformei minha paixão por games em uma carreira dedicada à criação de experiências interativas inovadoras e imersivas.
+                Estou sempre em busca de superar limites e transformar ideias em projetos que unem técnica e criatividade.
+            </p>
+            <!-- Botão logo abaixo -->
+            <a href="portfolio.html" class="btn-portfolio">Dê uma olhada no meu Portfolio</a>
+        </div>
+    </section>
+
+    <!-- Seção Meus Jogos Favoritos (não colapsável) -->
+    <section id="jogos-favoritos" class="section-jogos">
+        <div class="container">
+            <!-- Título destacado -->
+            <h2 class="section-title">Meus Jogos Favoritos</h2>
+
+            <!-- Carrossel de fotos (automático, sem barra e looping infinito) -->
+            <div class="carousel">
+                <div class="carousel-track">
+                    <!-- Conjunto original -->
+                    <img src="assets/img/games/game1.png" alt="Jogo 1">
+                    <img src="assets/img/games/game2.png" alt="Jogo 2">
+                    <img src="assets/img/games/game3.png" alt="Jogo 3">
+                    <img src="assets/img/games/game4.png" alt="Jogo 4">
+                    <img src="assets/img/games/game5.png" alt="Jogo 5">
+                    <img src="assets/img/games/game6.png" alt="Jogo 6">
+                    <img src="assets/img/games/game7.png" alt="Jogo 7">
+                    <!-- Duplicado para efeito de loop contínuo -->
+                    <img src="assets/img/games/game1.png" alt="Jogo 1">
+                    <img src="assets/img/games/game2.png" alt="Jogo 2">
+                    <img src="assets/img/games/game3.png" alt="Jogo 3">
+                </div>
+            </div>
+
+            <p>
+                Alguns dos jogos que mais me inspiram:
+                <strong>The Witcher 3</strong>, <strong>Dark Souls 3</strong>, <strong>Baldurs Gate 3</strong>, <strong>Elden Ring</strong>,
+                <strong>Forza Horizon 5</strong>, <strong>Call of Duty Black Ops 2: Zombies</strong> e <strong>Hollow Knight</strong>.
+                Eles mostram como design, narrativa e técnica se unem para criar mundos imersivos e inesquecíveis.
             </p>
         </div>
     </section>
 
-    <!-- Futuras seções: Portfolio podem ser adicionadas aqui -->
+    <!-- Seção Curiosidades (não colapsável) -->
+    <section id="curiosidades" class="section-curiosidades">
+        <div class="container">
+            <!-- Título destacado -->
+            <h2 class="section-title">Curiosidades</h2>
+            <!-- Carrossel de fotos (Placeholder - insira seu código de carrossel aqui) -->
+            <div class="carousel">
+                <div class="carousel-track">
+                    <img src="assets/img/curiosidades/curiosidade1.png" alt="Curiosidade 1">
+                    <img src="assets/img/curiosidades/curiosidade2.png" alt="Curiosidade 2">
+                    <img src="assets/img/curiosidades/curiosidade3.png" alt="Curiosidade 3">
+                </div>
+            </div>
+            <p>
+                Desenvolvo jogos desde criança, na época como jogos de papél mesmo.
+                Sou mestre de RPG e cantor de Heavy Metal no tempo livre. Minhas banda favorita é Avenged Sevenfold e minha linguagem de programação favorita é C++.
+            </p>
+        </div>
+    </section>
+
 </main>
 
-<!-- Seção de Contato -->
-<section id="contato" class="section-contato">
-    <div class="container">
-        <h2>Contate-me</h2>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/seu-perfil" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/seu-perfil" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://gitlab.com/seu-perfil" target="_blank"><i class="fab fa-gitlab"></i></a>
-            <!-- Para o itch.io, utilizei um ícone de gamepad como exemplo -->
-            <a href="https://itch.io/user/seu-perfil" target="_blank"><i class="fas fa-gamepad"></i></a>
-            <a href="https://wa.me/seu-numero" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<!-- Seção de Contato (Footer) -->
+<footer>
+    <section id="contato" class="section-contato">
+        <div class="container">
+            <h2>Contato</h2>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/nicolas-rissov" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/NicolasRisso" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://gitlab.com/NicolasRisso" target="_blank"><i class="fab fa-gitlab"></i></a>
+                <a href="https://nicolasrisso.itch.io" target="_blank"><i class="fas fa-gamepad"></i></a>
+                <a href="https://wa.me/5511943357065" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</footer>
 </body>
 </html>
