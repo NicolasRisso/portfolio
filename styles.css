@@ -307,4 +307,13 @@ main {
         font-size: 1em;
         padding: 12px 25px;
     }
+    /* Reduce carousel images dimensions in mobile */
+    .carousel-track img,
+    .carousel-track-curiosidades img {
+        width: 150px;  /* Diminuído de 200px para 150px */
+        height: 150px;
+    }
+    .container h1 .name {
+        white-space: nowrap;
+    }
 }
