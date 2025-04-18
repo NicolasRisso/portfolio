@@ -1,0 +1,61 @@
+.language-select {
+    position: relative;      /* pra posicionar o fade */
+    display: inline-block;
+    width: auto;
+    max-width: clamp(6rem, 30%, 8rem);            /* ajuste a largura que desejar */
+    padding: 0.5rem 1rem;
+    padding-right: 2.5rem;   /* mantém espaço pra seta */
+    font-size: 1rem;
+    line-height: 1.2;
+    background-color: var(--highlight);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    appearance: none;
+
+    /* truncamento de texto */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    /* seta customizada */
+    background-image: url("data:image/svg+xml;charset=UTF-8,\
+    <svg xmlns='http://www.w3.org/2000/svg' width='12' height='7'>\
+      <path fill='%23ffffff' d='M6 7L0 0h12z'/>\
+    </svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* fade‑out antes da seta */
+.language-select::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 1.8rem;   /* ajuste pra centralizar no fade */
+    width: 1rem;
+    background: linear-gradient(to left, var(--highlight), rgba(255,255,255,0));
+}
+
+/* hover/focus geral */
+.language-select:hover,
+.language-select:focus {
+    background-color: var(--highlight-hover);
+    outline: none;
+}
+
+/* outline branco removido */
+.language-select:focus {
+    box-shadow: none;
+}
+
+/* opcional: deixa a opção selecionada truncada também */
+.language-select option {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

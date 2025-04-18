@@ -1,0 +1,14 @@
+{
+  "title": "Portfolio - About Me",
+  "nav_about": "About Me",
+  "nav_education": "Education",
+  "nav_portfolio": "Portfolio",
+  "about_heading": "Hi, I’m {name}",
+  "about_paragraph": "I am a Game Programmer specializing in C++ and Unreal Engine 5, and my development journey began at age 14. Over the years, I have turned my passion for games into a career dedicated to creating innovative and immersive interactive experiences. I am always looking to push boundaries and turn ideas into projects that combine technique and creativity.",
+  "portfolio_button": "Take a look at my Portfolio",
+  "section_favorites_title": "My Favorite Games",
+  "favorites_paragraph": "Some of the games that inspire me most are <strong>The Witcher 3</strong>, <strong>Dark Souls 3</strong>, <strong>Baldur's Gate 3</strong>, <strong>Elden Ring</strong>, <strong>Forza Horizon 5</strong>, <strong>Call of Duty Black Ops 2: Zombies</strong>, and <strong>Hollow Knight</strong>. They demonstrate how design, narrative, and technique come together to create immersive and unforgettable worlds.",
+  "section_curiosities_title": "Curiosities",
+  "curiosities_paragraph": "I have been developing games since I was a child, back when I made paper games. I’m also an RPG game master and a Heavy Metal singer in my free time. I love Victorian and Gothic architecture with a horror twist. My favorite band is <strong>Avenged Sevenfold</strong>, and my favorite character class is <strong>Necromancer</strong>.",
+  "contact_title": "Contact"
+}

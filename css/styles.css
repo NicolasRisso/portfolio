@@ -1,4 +1,5 @@
-/* RESET & VARIABLES */
+@import './select.css';
+
 * {
     margin: 0;
     padding: 0;
@@ -7,19 +8,19 @@
 
 /* Color Variables */
 :root {
-    --white: #ffffff;                          /* White */
-    --highlight: #36c4d0;                        /* Light blue for highlights */
-    --highlight-hover: #2eaabf;                  /* Slightly darker blue for hover */
-    --bg-dark-blue: #036666;                     /* Dark blue background variant */
-    --bg-darkest-blue: #05343c;                  /* Darkest blue variant */
-    --bg-dark: #1D1E1E;                          /* Dark background */
-    --section-bg: #131314;                       /* Section background */
-    --section-bg-linear: linear-gradient(45deg, var(--bg-dark-blue), var(--highlight)); /* Gradient background for sections */
-    --container-bg: rgba(0, 0, 0, 0.7);           /* Container background */
-    --gradient-end-sobre: #01c4d7;                /* Ending color for "Sobre" section gradient */
-    --gradient-end-portfolio: #124d58;            /* Ending color for Portfolio section gradient */
-    --navbar-bg: rgba(0, 0, 0, 0.8);              /* Navbar background */
-    --navbar-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Navbar box shadow */
+    --white: #ffffff;
+    --highlight: #36c4d0;
+    --highlight-hover: #2eaabf;
+    --bg-dark-blue: #036666;
+    --bg-darkest-blue: #05343c;
+    --bg-dark: #1D1E1E;
+    --section-bg: #131314;
+    --section-bg-linear: linear-gradient(45deg, var(--bg-dark-blue), var(--highlight));
+    --container-bg: rgba(0, 0, 0, 0.7);
+    --gradient-end-sobre: #01c4d7;
+    --gradient-end-portfolio: #124d58;
+    --navbar-bg: rgba(0, 0, 0, 0.8);
+    --navbar-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* BASE STYLES */
@@ -32,32 +33,92 @@ body {
 
 /* NAVIGATION */
 .navbar {
+    display: flex;             /* ativa flex */
+    justify-content: center;   /* centra o nav-links */
+    align-items: center;
     position: fixed;
     top: 0;
     width: 100%;
     background: var(--navbar-bg);
-    padding: 15px 0;
+    padding: 15px 1rem;
     z-index: 100;
     box-shadow: var(--navbar-box-shadow);
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    gap: 1rem;      /* espaço de 1rem entre cada item */
+    margin: 0;      /* sem margin auto */
+    padding: 0;
+    list-style: none;
+    width: auto;
 }
 
-.nav-links li {
-    margin: 0 25px;
+/* dropdown de idioma */
+.lang-item {
+    position: relative;
+    margin-right: 0; /* empurra o restante para a direita */
 }
 
+.lang-dropdown-toggle {
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #28a745; /* verde p/ pt */
+}
+
+.lang-dropdown-menu {
+    position: absolute;
+    top: 2.4rem;
+    left: 0;
+    list-style: none;
+    background: #333;
+    border: 1px solid #444;
+    border-radius: 4px;
+    overflow: hidden;
+    display: none;
+    min-width: 2rem;
+}
+
+.lang-dropdown-menu.show {
+    display: block;
+}
+
+.lang-dropdown-menu li {
+    width: 100%;
+}
+
+.lang-dropdown-menu li button {
+    width: 100%;
+    padding: 0.4rem;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* cores provisórias */
+.lang-dropdown-menu li[data-lang="pt"] button {
+    background-color: #28a745;
+}
+.lang-dropdown-menu li[data-lang="en"] button {
+    background-color: #dc3545;
+}
+.lang-dropdown-menu li button:hover {
+    opacity: 0.8;
+}
+
+/* links do menu principal */
 .nav-links li a {
     text-decoration: none;
     color: var(--white);
-    font-size: 18px;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
 }
-
 .nav-links li a:hover {
     color: var(--highlight);
 }
@@ -316,4 +377,18 @@ main {
     .container h1 .name {
         white-space: nowrap;
     }
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+select{
+    padding: 5px;
+    margin: 0 5px;
 }

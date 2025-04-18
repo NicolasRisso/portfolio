@@ -2,22 +2,42 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Sobre Mim</title>
-    <!-- Font Awesome para os ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-i18n-key="title">Portfolio - Sobre Mim</title>
+
+    <!-- Font Awesome -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <!-- Flag‑icon CSS (mova para cá!) -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"
+            integrity="sha512-+zt1sLlYZUuT0+TqnT1BbK2YR1u+e66qbZtzjh4/YuE+dbsG+SGv+xmgSylnJjwvvYlXe6N4YH1vT8Zh80IoYg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    >
+
+    <!-- Seu CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <script src="scripts/translator.js" defer></script>
 </head>
+
 <body>
 <!-- Header com a barra de navegação fixa -->
 <header>
     <nav class="navbar">
         <ul class="nav-links">
-            <!-- Links para as páginas separadas -->
-            <li><a href="sobre-mim.html">Sobre Mim</a></li>
-            <li><a href="educacao.html">Formação</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
+            <select class="language-select" id="translation">
+                <option class="language-option" value="en">English</option>
+                <option class="language-option" value="pt">Portuguese</option>
+            </select>
+            <li><a href="sobre-mim.html" data-i18n-key="nav_about">Sobre Mim</a></li>
+            <li><a href="educacao.html" data-i18n-key="nav_education">Formação</a></li>
+            <li><a href="portfolio.html" data-i18n-key="nav_portfolio">Portfolio</a></li>
         </ul>
     </nav>
 </header>
@@ -29,14 +49,14 @@
         <div class="container">
             <!-- Imagem de perfil e texto -->
             <img src="assets/img/mainpicture.png" alt="Foto de Perfil" class="profile-img">
-            <h1>Olá, eu sou o <span class="name">Nicolas Risso</span></h1>
-            <p>
+            <h1 data-i18n-key="about_heading">Olá, eu sou o <span class="name">Nicolas Risso</span></h1>
+            <p data-i18n-key="about_paragraph">
                 Sou um Programador de Jogos especializado em C++ e Unreal Engine 5, e minha jornada no desenvolvimento começou aos 14 anos.
                 Ao longo dos anos, transformei minha paixão por games em uma carreira dedicada à criação de experiências interativas inovadoras e imersivas.
                 Estou sempre em busca de superar limites e transformar ideias em projetos que unem técnica e criatividade.
             </p>
             <!-- Botão logo abaixo -->
-            <a href="portfolio.html" class="btn-portfolio">Dê uma olhada no meu Portfolio</a>
+            <a href="portfolio.html" class="btn-portfolio" data-i18n-key="portfolio_button">Dê uma olhada no meu Portfolio</a>
         </div>
     </section>
 
@@ -44,7 +64,7 @@
     <section id="jogos-favoritos" class="section-jogos">
         <div class="container">
             <!-- Título destacado -->
-            <h2 class="section-title">Meus Jogos Favoritos</h2>
+            <h2 class="section-title" data-i18n-key="section_favorites_title">Meus Jogos Favoritos</h2>
 
             <!-- Carrossel de fotos (automático, sem barra e looping infinito) -->
             <div class="carousel">
@@ -64,7 +84,7 @@
                 </div>
             </div>
 
-            <p>
+            <p data-i18n-key="favorites_paragraph">
                 Alguns dos jogos que mais me inspiram:
                 <strong>The Witcher 3</strong>, <strong>Dark Souls 3</strong>, <strong>Baldurs Gate 3</strong>, <strong>Elden Ring</strong>,
                 <strong>Forza Horizon 5</strong>, <strong>Call of Duty Black Ops 2: Zombies</strong> e <strong>Hollow Knight</strong>.
@@ -77,7 +97,7 @@
     <section id="curiosidades" class="section-curiosidades">
         <div class="container">
             <!-- Título destacado -->
-            <h2 class="section-title">Curiosidades</h2>
+            <h2 class="section-title" data-i18n-key="section_curiosities_title">Curiosidades</h2>
             <!-- Carrossel de fotos (Placeholder - insira seu código de carrossel aqui) -->
             <div class="carousel">
                 <div class="carousel-track-curiosidades">
@@ -90,7 +110,7 @@
                     <img src="assets/img/curiosidades/curiosidade2.png" alt="Curiosidade 2">
                 </div>
             </div>
-            <p>
+            <p data-i18n-key="curiosities_paragraph" data-i18n-key="curiosities_paragraph">
                 Desenvolvo jogos desde criança, na época como jogos de papél mesmo.
                 Sou mestre de RPG e cantor de Heavy Metal no tempo livre. Curto muito arquitetura Vitoriana e Gótica com pegada para terror. Minha banda favorita é Avenged Sevenfold e minha classe favorita é Necromante.
             </p>
@@ -103,9 +123,10 @@
 <footer>
     <section id="contato" class="section-contato">
         <div class="container">
-            <h2>Contato</h2>
+            <h2 data-i18n-key="contact_title">Contato</h2>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/nicolas-rissov" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:rissov.nicolas@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://github.com/NicolasRisso" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://gitlab.com/NicolasRisso" target="_blank"><i class="fab fa-gitlab"></i></a>
                 <a href="https://nicolasrisso.itch.io" target="_blank"><i class="fas fa-gamepad"></i></a>
