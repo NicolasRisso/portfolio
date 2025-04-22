@@ -1,4 +1,7 @@
+@import './lang_dropdown.css';
+@import './others.css';
 @import './select.css';
+@import './sidebar.css';
 
 * {
     margin: 0;
@@ -29,6 +32,7 @@ body {
     color: var(--white);
     background-color: var(--bg-dark);
     line-height: 1.6;
+    margin: 0;
 }
 
 /* NAVIGATION */
@@ -48,68 +52,13 @@ body {
 .nav-links {
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: relative;
     gap: 1rem;      /* espaço de 1rem entre cada item */
     margin: 0;      /* sem margin auto */
     padding: 0;
     list-style: none;
     width: auto;
-}
-
-/* dropdown de idioma */
-.lang-item {
-    position: relative;
-    margin-right: 0; /* empurra o restante para a direita */
-}
-
-.lang-dropdown-toggle {
-    width: 2rem;
-    height: 2rem;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    background-color: #28a745; /* verde p/ pt */
-}
-
-.lang-dropdown-menu {
-    position: absolute;
-    top: 2.4rem;
-    left: 0;
-    list-style: none;
-    background: #333;
-    border: 1px solid #444;
-    border-radius: 4px;
-    overflow: hidden;
-    display: none;
-    min-width: 2rem;
-}
-
-.lang-dropdown-menu.show {
-    display: block;
-}
-
-.lang-dropdown-menu li {
-    width: 100%;
-}
-
-.lang-dropdown-menu li button {
-    width: 100%;
-    padding: 0.4rem;
-    border: none;
-    text-align: center;
-    cursor: pointer;
-    color: #fff;
-    font-weight: bold;
-}
-
-/* cores provisórias */
-.lang-dropdown-menu li[data-lang="pt"] button {
-    background-color: #28a745;
-}
-.lang-dropdown-menu li[data-lang="en"] button {
-    background-color: #dc3545;
-}
-.lang-dropdown-menu li button:hover {
-    opacity: 0.8;
 }
 
 /* links do menu principal */
@@ -376,6 +325,40 @@ main {
     }
     .container h1 .name {
         white-space: nowrap;
+    }
+
+    /* mostre o toggle */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--white);
+        cursor: pointer;
+        margin-right: auto; /* empurra o ícone pra esquerda */
+    }
+
+    /* esconda o menu */
+    .nav-links {
+        display: none;        /* pulso: escondido por padrão */
+        flex-direction: column;
+        position: absolute;   /* dropdown sob a navbar */
+        top: 100%; left: 0;
+        width: 100%;
+        background: var(--navbar-bg);
+        padding: 1rem 0;
+    }
+
+    /* quando ativo, vira flex vertical */
+    .nav-links.show {
+        display: flex;
+    }
+
+    /* no mobile você pode querer mover o select pro topo do dropdown */
+    .language-select {
+        position: static;     /* volta pro fluxo */
+        margin-bottom: 1rem;
+        transform: none;
     }
 }
 

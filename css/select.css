@@ -1,5 +1,10 @@
 .language-select {
-    position: relative;      /* pra posicionar o fade */
+    /*Align to Left of Header*/
+    position: absolute;      
+    left: 0;
+    top: 50%;                 
+    transform: translateY(-50%);
+    
     display: inline-block;
     width: auto;
     max-width: clamp(6rem, 30%, 8rem);            /* ajuste a largura que desejar */
