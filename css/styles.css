@@ -41,6 +41,7 @@ body {
     justify-content: center;   /* centra o nav-links */
     align-items: center;
     position: fixed;
+    min-height: 4.5rem;
     top: 0;
     width: 100%;
     background: var(--navbar-bg);
@@ -63,6 +64,8 @@ body {
 
 /* links do menu principal */
 .nav-links li a {
+    height: 50%;
+    display: flex;
     text-decoration: none;
     color: var(--white);
     font-size: 1rem;
@@ -74,7 +77,7 @@ body {
 
 /* MAIN CONTENT SPACE (to avoid overlap with fixed navbar) */
 main {
-    padding-top: 60px;
+    padding-top: 4.5rem;
 }
 
 /* GENERAL SECTIONS */
@@ -300,9 +303,6 @@ main {
 
 /* RESPONSIVE STYLES */
 @media (max-width: 768px) {
-    .nav-links li {
-        margin: 0 15px;
-    }
     .container {
         width: 90%;
         margin: 0 auto;
@@ -313,6 +313,7 @@ main {
     .container p {
         font-size: 1em;
     }
+    
     .btn-portfolio {
         font-size: 1em;
         padding: 12px 25px;
@@ -326,39 +327,11 @@ main {
     .container h1 .name {
         white-space: nowrap;
     }
+}
 
-    /* mostre o toggle */
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: var(--white);
-        cursor: pointer;
-        margin-right: auto; /* empurra o ícone pra esquerda */
-    }
-
-    /* esconda o menu */
-    .nav-links {
-        display: none;        /* pulso: escondido por padrão */
-        flex-direction: column;
-        position: absolute;   /* dropdown sob a navbar */
-        top: 100%; left: 0;
-        width: 100%;
-        background: var(--navbar-bg);
-        padding: 1rem 0;
-    }
-
-    /* quando ativo, vira flex vertical */
-    .nav-links.show {
-        display: flex;
-    }
-
-    /* no mobile você pode querer mover o select pro topo do dropdown */
-    .language-select {
-        position: static;     /* volta pro fluxo */
-        margin-bottom: 1rem;
-        transform: none;
+@media(max-width: 800px) {
+    .hideOnMobile {
+        display: none;
     }
 }
 
