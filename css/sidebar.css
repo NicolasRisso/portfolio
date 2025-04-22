@@ -31,7 +31,7 @@
     padding: 0.5rem 1rem;
 }
 .sidebar li a:hover {
-    color: var(--highlight);
+    color: var(--highlight-dark);
 }
 .sidebar li:first-child {
     margin-right: auto;

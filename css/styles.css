@@ -14,6 +14,7 @@
     --white: #ffffff;
     --highlight: #36c4d0;
     --highlight-hover: #2eaabf;
+    --highlight-dark: #1f4040;
     --bg-dark-blue: #036666;
     --bg-darkest-blue: #05343c;
     --bg-dark: #1D1E1E;
@@ -44,10 +45,13 @@ body {
     min-height: 4.5rem;
     top: 0;
     width: 100%;
-    background: var(--navbar-bg);
+    /*background: var(--navbar-bg);*/
+    background-color: rgba(125, 255, 255, 0.45);
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
     padding: 15px 1rem;
     z-index: 100;
-    box-shadow: var(--navbar-box-shadow);
+    /*box-shadow: var(--navbar-box-shadow);*/
 }
 
 .nav-links {
@@ -72,15 +76,16 @@ body {
     padding: 0.5rem 1rem;
 }
 .nav-links li a:hover {
-    color: var(--highlight);
+    color: var(--highlight-dark);
 }
 
 /* MAIN CONTENT SPACE (to avoid overlap with fixed navbar) */
 main {
-    padding-top: 4.5rem;
+    padding-top: 0;
 }
 
 /* GENERAL SECTIONS */
+
 .section-sobre,
 .section-portfolio,
 .section-jogos,
@@ -92,7 +97,9 @@ main {
 
 /* "SOBRE" SECTION - Gradient Background */
 .section-sobre {
-    min-height: 65vh;
+    padding-top: 9rem;
+    padding-bottom: 4.5rem;
+    min-height: calc(65vh + 4.5rem);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -324,7 +331,7 @@ main {
         width: 150px;  /* Diminuído de 200px para 150px */
         height: 150px;
     }
-    .container h1 .name {
+    .container h1 .name .nowrap{
         white-space: nowrap;
     }
 }

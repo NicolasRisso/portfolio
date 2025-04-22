@@ -3,7 +3,7 @@
   "nav_about": "Sobre Mim",
   "nav_education": "Formação",
   "nav_portfolio": "Portfolio",
-  "about_heading": "Olá, eu sou o {name}",
+  "about_heading": "<span class=\"nowrap\">Olá, eu sou o</span> {name}",
   "about_paragraph": "Sou um Programador de Jogos especializado em C++ e Unreal Engine 5, e minha jornada no desenvolvimento começou aos 14 anos. Ao longo dos anos, transformei minha paixão por games em uma carreira dedicada à criação de experiências interativas inovadoras e imersivas. Estou sempre em busca de superar limites e transformar ideias em projetos que unem técnica e criatividade.",
   "portfolio_button": "Dê uma olhada no meu Portfolio",
   "section_favorites_title": "Meus Jogos Favoritos",
