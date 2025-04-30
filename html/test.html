@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Fundo Líquido com Bolhas</title>
+    <style>
+        /* remove margens/branco */
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            background: #036666; /* fallback */
+        }
+        .liquid-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(to bottom, #36c4d0, #036666);
+            filter: url(#liquid);
+            z-index: -1;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -60px;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: rise linear infinite;
+            width: 20px; height: 20px; /* serão sobrescritas em JS */
+            background: radial-gradient(circle at 30% 30%,
+            rgba(255,255,255,0.8) 0%,
+            rgba(255,255,255,0.2) 60%,
+            rgba(255,255,255,0) 100%);
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
+        }
+        @keyframes rise {
+            0%   { transform: translateY(0) translateX(0); opacity: 0.6; }
+            50%  { opacity: 0.8; }
+            100% { transform: translateY(-120vh) translateX(20px); opacity: 0; }
+        }
+        h1 {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+            text-align: center;
+            margin-top: 45vh;
+            font-family: sans-serif;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+<div class="liquid-bg"></div>
+<h1>Plasma Líquido com Bolhas</h1>
+
+<!-- filtro SVG: region bem maior que a tela -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0">
+    <filter id="liquid"
+            filterUnits="objectBoundingBox"
+            x="-1"   y="-1"
+            width="3" height="3">
+        <feTurbulence id="turb"
+                      type="turbulence"
+                      baseFrequency="0.02 0.02"
+                      numOctaves="3"
+                      seed="2"/>
+        <feDisplacementMap in="SourceGraphic"
+                           in2="turb"
+                           scale="30"
+                           xChannelSelector="R"
+                           yChannelSelector="G"/>
+    </filter>
+</svg>
+
+<script>
+    // animação do plasma
+    const turb = document.getElementById('turb');
+    let phase = 0;
+    (function anim() {
+        phase += 0.005;
+        const fx = 0.02 + Math.sin(phase) * 0.005;
+        const fy = 0.02 + Math.cos(phase) * 0.005;
+        turb.setAttribute('baseFrequency', fx + ' ' + fy);
+        requestAnimationFrame(anim);
+    })();
+
+    // cria as bolhas
+    const bg = document.querySelector('.liquid-bg');
+    const count = 30;
+    for (let i = 0; i < count; i++) {
+        const b = document.createElement('div');
+        b.className = 'bubble';
+        const size = 15 + Math.random() * 20;  // 15–35px
+        b.style.width  = size + 'px';
+        b.style.height = size + 'px';
+        b.style.left   = Math.random() * 100 + '%';
+        b.style.animationDuration = 5 + Math.random() * 8 + 's';
+        b.style.animationDelay    = Math.random() * 5 + 's';
+        bg.appendChild(b);
+    }
+</script>
+</body>
+</html>
