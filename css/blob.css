@@ -41,3 +41,10 @@
 .blob.glow {
     filter: blur(50px);
 }
+
+@media(max-width: 900px){
+    .blob-wrapper {
+        max-height: 300px;
+        max-width: 300px;
+    }
+}

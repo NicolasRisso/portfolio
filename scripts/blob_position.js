@@ -1,91 +1,75 @@
 // scripts/blob_position.js
-
-// retorna um número aleatório entre min (inclusive) e max (exclusive)
-function randBetween(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
-// checa colisão entre a caixa [x,y,w,h] e quaisquer outras do array positions
-function isOverlapping(x, y, w, h, selfWrapper, positions) {
-    return positions.some(pos => {
-        if (pos.wrapper === selfWrapper) return false;
-        const overlapX = x < pos.x + pos.width && x + w > pos.x;
-        const overlapY = y < pos.y + pos.height && y + h > pos.y;
-        return overlapX && overlapY;
-    });
-}
-
-function moveBlob(wrapper, positions) {
-    const entry = positions.find(e => e.wrapper === wrapper);
-    const maxX = window.innerWidth  - entry.width;
-    const maxY = window.innerHeight - entry.height;
-
-    let x, y, tries = 0;
-    do {
-        x = randBetween(0, maxX);
-        y = randBetween(0, maxY);
-        tries++;
-    } while (isOverlapping(x, y, entry.width, entry.height, wrapper, positions) && tries < 20);
-
-    wrapper.style.transform = `translate(${x}px, ${y}px)`;
-    entry.x = x;
-    entry.y = y;
-
-    const durMs = parseFloat(wrapper.dataset.duration) * 1000;
-    setTimeout(() => moveBlob(wrapper, positions), durMs + 500);
-}
-
-window.addEventListener('DOMContentLoaded', () => {
+(() => {
     const wrappers = Array.from(document.querySelectorAll('.blob-wrapper'));
     const positions = [];
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
 
+    function randBetween(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+    function isOverlapping(x, y, w, h, self, positions) {
+        return positions.some(p => {
+            if (p.wrapper === self) return false;
+            return x < p.x + p.w && x + w > p.x
+                && y < p.y + p.h && y + h > p.y;
+        });
+    }
+
+    // faz todo o setup inicial
     wrappers.forEach(wrapper => {
-        // 1) define tamanho aleatório
-        const size = Math.floor(randBetween(300, 600));
-        wrapper.style.width  = `${size}px`;
-        wrapper.style.height = `${size}px`;
+        // 1) tamanho e duração
+        const size = randBetween(300, 600) | 0;
+        wrapper.style.width = wrapper.style.height = `${size}px`;
+        const duration = randBetween(8, 14);
+        wrapper._duration = duration * 1000; // em ms
 
-        // 2) define duração de movimento aleatória
-        const duration = randBetween(8, 14).toFixed(2);
-        wrapper.dataset.duration = duration;
-
-        // 3) aplica delay negativo no SVG para offset de forma
+        // 2) offset aleatório no SVG (único loop SMIL)
         wrapper.querySelectorAll('animate').forEach(anim => {
-            const offset = randBetween(0, duration).toFixed(2);
-            anim.setAttribute('begin', `-${offset}s`);
+            const off = randBetween(0, duration).toFixed(2);
+            anim.setAttribute('begin', `-${off}s`);
         });
 
-        // 4) desliga a transição para posicionar instantaneamente
+        // 3) posição inicial sem transição
         wrapper.style.transition = 'none';
-
-        // 5) encontra posição inicial sem sobrepor ninguém
-        let initX, initY, tries = 0;
-        const maxX = window.innerWidth  - size;
-        const maxY = window.innerHeight - size;
+        let x, y, tries = 0;
         do {
-            initX = randBetween(0, maxX);
-            initY = randBetween(0, maxY);
-            tries++;
-        } while (isOverlapping(initX, initY, size, size, wrapper, positions) && tries < 20);
+            x = randBetween(0, vw - size);
+            y = randBetween(0, vh - size);
+        } while (isOverlapping(x, y, size, size, wrapper, positions) && ++tries < 10);
 
-        wrapper.style.transform = `translate(${initX}px, ${initY}px)`;
+        wrapper.style.transform = `translate(${x}px,${y}px)`;
+        positions.push({ wrapper, x, y, w: size, h: size });
 
-        // registra essa posição
-        positions.push({
-            wrapper,
-            x: initX,
-            y: initY,
-            width: size,
-            height: size
-        });
+        // 4) agendamos o próximo movimento
+        wrapper._nextMove = performance.now() + wrapper._duration + 500;
 
-        // força reflow
+        // 5) força reflow e ativa transition
         wrapper.getBoundingClientRect();
-
-        // 6) habilita a transição suave para futuros movimentos
         wrapper.style.transition = `transform ${duration}s ease-in-out`;
     });
 
-    // 7) dispara o loop de movimento para cada blob
-    wrappers.forEach(wrapper => moveBlob(wrapper, positions));
-});
+    // função que desloca um blob e atualiza seu nextMove e posição
+    function moveBlob(wrapper) {
+        const entry = positions.find(p => p.wrapper === wrapper);
+        const sizeW = entry.w, sizeH = entry.h;
+        let x, y, tries = 0;
+        do {
+            x = randBetween(0, vw - sizeW);
+            y = randBetween(0, vh - sizeH);
+        } while (isOverlapping(x, y, sizeW, sizeH, wrapper, positions) && ++tries < 10);
+
+        wrapper.style.transform = `translate(${x}px,${y}px)`;
+        entry.x = x; entry.y = y;
+        wrapper._nextMove = performance.now() + wrapper._duration + 500;
+    }
+
+    // loop único de agendamento
+    function tick(now) {
+        for (const wrapper of wrappers) {
+            if (now >= wrapper._nextMove) moveBlob(wrapper);
+        }
+        requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+})();
