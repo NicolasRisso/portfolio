@@ -2,6 +2,7 @@
 @import './others.css';
 @import './select.css';
 @import './sidebar.css';
+@import './blob.css';
 
 * {
     margin: 0;
@@ -91,8 +92,16 @@ main {
 .section-jogos,
 .section-contato,
 .section-curiosidades {
-    padding: 40px 20px;
+    padding: 60px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     background: var(--section-bg);
+}
+
+.section-curiosidades > .container {
+    margin-top: 2rem;          /* distancia o container do título */
 }
 
 /* "SOBRE" SECTION - Gradient Background */
@@ -272,14 +281,27 @@ main {
 }
 
 /* CONTACT SECTION */
-.section-contato {
+.section-default {
+    padding: 60px 20px;
     background: var(--section-bg);
+}
+
+.section-contato {
+    background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.7) 0%,       /* preto 70% opaco */
+            rgba(3, 102, 102, 0.7) 100%   /* azul escuro 70% opaco */
+    );
     padding: 30px 20px;
     text-align: center;
 }
 
 .section-contato .container {
-    background: var(--container-bg);
+    background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.7) 0%,       /* preto 70% opaco */
+            rgba(3, 102, 102, 0.7) 100%   /* azul escuro 70% opaco */
+    );
     padding: 30px;
     border-radius: 20px;
     max-width: 800px;
@@ -354,4 +376,208 @@ main {
 select{
     padding: 5px;
     margin: 0 5px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-item {
+    background: linear-gradient(
+            135deg,
+            rgba(54,196,208,0.7),
+            rgba(3,102,102,0.6),
+            rgba(1, 52, 60, 0.7)
+    );
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    animation: fadeIn 1s ease both;
+}
+.portfolio-item h3 {
+    margin-bottom: .5rem;
+}
+.portfolio-item a {
+    color: var(--highlight);
+    text-decoration: none;
+}
+.portfolio-item a:hover {
+    text-decoration: underline;
+}
+
+#qualifications .container ul {
+    columns: 2;
+    column-gap: 2rem;
+    list-style: disc;
+    padding-left: 1.5rem;
+    text-align: left;
+}
+
+#education .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+#education .education-item {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+/* --- títulos de seção grandões e centralizados --- */
+.section-heading {
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;       /* ajuste ao seu gosto */
+    font-weight: 700;
+    color: var(--white);
+    margin: 0;             /* sem margem extra */
+    padding: 1rem 0;       /* espaço acima e abaixo */
+    /* opcional: sombra suave pra destacar mais */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+}
+
+/* garante que o container fique abaixo do título */
+.section-default .container,
+.section-portfolio .container {
+    margin-top: 2rem;      /* afasta o conteúdo do título */
+}
+#portfolio > .section-heading {
+    font-size: 3.5rem;
+}
+
+/* Créditos do dev no rodapé */
+.dev-credit {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--white);
+    padding: 0.5rem 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Container personalizado para Contato */
+.container-contato {
+    max-width: 900px;           /* mais largo que o padrão */
+    width: 90%;                 /* ocupa boa parte da tela */
+    background: linear-gradient(
+            135deg,
+            rgba(3, 102, 102, 0.7) 0%,   /* azul escuro 70% opaco */
+            rgba(0, 0, 0, 0.7) 100%       /* preto 70% opaco */
+    );
+    padding: 60px 40px;         /* padding interno maior */
+    border-radius: 15px;
+    margin: 0 auto;             /* centraliza horizontalmente */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.section-contato {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 5vh;   /* ou o que achar melhor */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    /* gradiente de toda a página */
+    background: var(--blob-background-color);
+    background-attachment: fixed; /* mantém o gradiente fixo ao scroll */
+}
+
+.section-sobre,
+.section-default,
+.section-portfolio,
+.section-jogos,
+.section-curiosidades,
+.section-contato {
+    background: transparent;
+    z-index: 1;
+    position: relative;
+}
+.container {
+    background: linear-gradient(
+            135deg,
+            rgba(54,196,208,0.7),
+            rgba(3,102,102,0.6),
+            rgba(1, 52, 60, 0.7)
+    );
+    backdrop-filter: blur(8px);
+}
+
+/* bloco vertical: imagem em cima, texto embaixo */
+.education-item {
+    display: block;           /* não usa mais flex */
+    text-align: left;         /* texto alinhado à esquerda */
+    background: linear-gradient(
+            135deg,
+            rgba(54, 196, 208, 0.4) 0%,
+            rgba(24, 150, 162, 0.4) 50%,
+            rgba(3, 102, 102, 0.4) 100%
+    );
+    backdrop-filter: blur(8px);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* centraliza a imagem e reduz o tamanho */
+.education-icon, .portfolio-icon {
+    display: block;
+    margin: 0 auto 1rem;      /* 1rem de gap embaixo */
+    width: 250px;               /* tamanho reduzido */
+    height: auto;
+    object-fit: contain;
+}
+
+/* mantém o texto alinhado */
+.education-text h3 {
+    margin: 0 0 .25rem;
+    font-size: 1.2rem;
+}
+.education-text p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--white);
+}
+
+/* grid responsivo */
+#education .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.education-icon,
+.portfolio-icon,
+.curiosidade-img,
+.games-img{
+    border-radius: 5%;
+    object-fit: cover;
+}
+
+.portfolio-meta {
+    align-items: flex-start;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--white);
+    display: flex;
+}
+
+.portfolio-meta .meta-tool,
+.portfolio-meta .meta-platform {
+    display: inline-block;
+    background: rgba(54,196,208,0.2); /* leve destaque */
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
 }

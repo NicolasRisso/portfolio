@@ -23,16 +23,121 @@
     <link rel="stylesheet" href="css/styles.css">
     
     <script src="scripts/translator.js" defer></script>
+    <script src="scripts/blob_position.js" defer></script>
 </head>
 
 <body>
+
+<section class="blob-section">
+    <div class="blob-wrapper">
+        <div class="blob">
+            <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color: rgb(54, 196, 208);"></stop>
+                        <stop offset="100%" style="stop-color: rgb(3, 102, 102);"></stop>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#gradient)">
+                    <animate attributeName="d"
+                             dur="10000ms"
+                             repeatcount="indefinite"
+                             values="M416.5,294.5Q389,339,370,405.5Q351,472,285.5,465Q220,458,176.5,421.5Q133,385,105,343Q77,301,67,247Q57,193,92.5,151Q128,109,176,89Q224,69,277.5,70.5Q331,72,364,113.5Q397,155,420.5,202.5Q444,250,416.5,294.5Z;
+                                M419.5,293Q384,336,349.5,363.5Q315,391,265,441.5Q215,492,166.5,447.5Q118,403,65,361.5Q12,320,35,257Q58,194,101.5,161.5Q145,129,184,96.5Q223,64,268.5,86.5Q314,109,357.5,131Q401,153,428,201.5Q455,250,419.5,293Z;
+                                M426,295.5Q392,341,357.5,375.5Q323,410,272.5,427Q222,444,160.5,434Q99,424,63,370Q27,316,23.5,249.5Q20,183,80.5,153.5Q141,124,182,92Q223,60,283,53Q343,46,371,100Q399,154,429.5,202Q460,250,426,295.5Z;
+                                M463.76608,315.9833Q456.0103,381.96659,406.14783,431.82907Q356.28536,481.69154,291.70309,447.4833Q227.12082,413.27505,178.42288,401.35475Q129.72495,389.43444,117.40876,340.55526Q105.09257,291.67608,74.06814,240.53856Q43.04371,189.40103,95.22237,160.54113Q147.40103,131.68124,189.04113,121.44474Q230.68124,111.20824,284.92031,83.08484Q339.15938,54.96144,370.3599,103.84062Q401.56041,152.71979,436.54113,201.3599Q471.52185,250,463.76608,315.9833Z;
+                                M423.11376,308.64239Q431.5221,367.28478,380.25942,395.21032Q328.99673,423.13586,277.0221,422.0442Q225.04746,420.95254,176.40507,406.11866Q127.76268,391.28478,87.40181,350.33388Q47.04093,309.38297,51.09329,251.07283Q55.14566,192.76268,79.61703,137.56793Q104.08839,82.37317,164.16285,77.85108Q224.23732,73.32898,276.87971,75.0712Q329.5221,76.81341,366.21359,114.43044Q402.90507,152.04746,408.80525,201.02373Q414.70542,250,423.11376,308.64239Z;
+                                M416.5,294.5Q389,339,370,405.5Q351,472,285.5,465Q220,458,176.5,421.5Q133,385,105,343Q77,301,67,247Q57,193,92.5,151Q128,109,176,89Q224,69,277.5,70.5Q331,72,364,113.5Q397,155,420.5,202.5Q444,250,416.5,294.5Z"
+                    >
+                    </animate>
+                </path>
+            </svg>
+        </div>
+        <div class="blob glow">
+            <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color: rgb(54, 196, 208);"></stop>
+                        <stop offset="100%" style="stop-color: rgb(3, 102, 102);"></stop>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#gradient)">
+                    <animate attributeName="d"
+                             dur="10000ms"
+                             repeatcount="indefinite"
+                             values="M416.5,294.5Q389,339,370,405.5Q351,472,285.5,465Q220,458,176.5,421.5Q133,385,105,343Q77,301,67,247Q57,193,92.5,151Q128,109,176,89Q224,69,277.5,70.5Q331,72,364,113.5Q397,155,420.5,202.5Q444,250,416.5,294.5Z;
+                            M419.5,293Q384,336,349.5,363.5Q315,391,265,441.5Q215,492,166.5,447.5Q118,403,65,361.5Q12,320,35,257Q58,194,101.5,161.5Q145,129,184,96.5Q223,64,268.5,86.5Q314,109,357.5,131Q401,153,428,201.5Q455,250,419.5,293Z;
+                            M426,295.5Q392,341,357.5,375.5Q323,410,272.5,427Q222,444,160.5,434Q99,424,63,370Q27,316,23.5,249.5Q20,183,80.5,153.5Q141,124,182,92Q223,60,283,53Q343,46,371,100Q399,154,429.5,202Q460,250,426,295.5Z;
+                            M463.76608,315.9833Q456.0103,381.96659,406.14783,431.82907Q356.28536,481.69154,291.70309,447.4833Q227.12082,413.27505,178.42288,401.35475Q129.72495,389.43444,117.40876,340.55526Q105.09257,291.67608,74.06814,240.53856Q43.04371,189.40103,95.22237,160.54113Q147.40103,131.68124,189.04113,121.44474Q230.68124,111.20824,284.92031,83.08484Q339.15938,54.96144,370.3599,103.84062Q401.56041,152.71979,436.54113,201.3599Q471.52185,250,463.76608,315.9833Z;
+                            M423.11376,308.64239Q431.5221,367.28478,380.25942,395.21032Q328.99673,423.13586,277.0221,422.0442Q225.04746,420.95254,176.40507,406.11866Q127.76268,391.28478,87.40181,350.33388Q47.04093,309.38297,51.09329,251.07283Q55.14566,192.76268,79.61703,137.56793Q104.08839,82.37317,164.16285,77.85108Q224.23732,73.32898,276.87971,75.0712Q329.5221,76.81341,366.21359,114.43044Q402.90507,152.04746,408.80525,201.02373Q414.70542,250,423.11376,308.64239Z;
+                            M416.5,294.5Q389,339,370,405.5Q351,472,285.5,465Q220,458,176.5,421.5Q133,385,105,343Q77,301,67,247Q57,193,92.5,151Q128,109,176,89Q224,69,277.5,70.5Q331,72,364,113.5Q397,155,420.5,202.5Q444,250,416.5,294.5Z"
+                    >
+                    </animate>
+                </path>
+            </svg>
+        </div>
+    </div>
+    <div class="blob-wrapper">
+        <div class="blob">
+            <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color: rgb(54, 196, 208);"></stop>
+                        <stop offset="100%" style="stop-color: rgb(3, 102, 102);"></stop>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#gradient)">
+                    <animate attributeName="d"
+                             dur="12000ms"
+                             repeatcount="indefinite"
+                             values="M419.5,293Q384,336,349.5,363.5Q315,391,265,441.5Q215,492,166.5,447.5Q118,403,65,361.5Q12,320,35,257Q58,194,101.5,161.5Q145,129,184,96.5Q223,64,268.5,86.5Q314,109,357.5,131Q401,153,428,201.5Q455,250,419.5,293Z;
+                                M416.5,294.5Q389,339,370,405.5Q351,472,285.5,465Q220,458,176.5,421.5Q133,385,105,343Q77,301,67,247Q57,193,92.5,151Q128,109,176,89Q224,69,277.5,70.5Q331,72,364,113.5Q397,155,420.5,202.5Q444,250,416.5,294.5Z;
+                                M423.11376,308.64239Q431.5221,367.28478,380.25942,395.21032Q328.99673,423.13586,277.0221,422.0442Q225.04746,420.95254,176.40507,406.11866Q127.76268,391.28478,87.40181,350.33388Q47.04093,309.38297,51.09329,251.07283Q55.14566,192.76268,79.61703,137.56793Q104.08839,82.37317,164.16285,77.85108Q224.23732,73.32898,276.87971,75.0712Q329.5221,76.81341,366.21359,114.43044Q402.90507,152.04746,408.80525,201.02373Q414.70542,250,423.11376,308.64239Z;
+                                M463.76608,315.9833Q456.0103,381.96659,406.14783,431.82907Q356.28536,481.69154,291.70309,447.4833Q227.12082,413.27505,178.42288,401.35475Q129.72495,389.43444,117.40876,340.55526Q105.09257,291.67608,74.06814,240.53856Q43.04371,189.40103,95.22237,160.54113Q147.40103,131.68124,189.04113,121.44474Q230.68124,111.20824,284.92031,83.08484Q339.15938,54.96144,370.3599,103.84062Q401.56041,152.71979,436.54113,201.3599Q471.52185,250,463.76608,315.9833Z;
+                                M426,295.5Q392,341,357.5,375.5Q323,410,272.5,427Q222,444,160.5,434Q99,424,63,370Q27,316,23.5,249.5Q20,183,80.5,153.5Q141,124,182,92Q223,60,283,53Q343,46,371,100Q399,154,429.5,202Q460,250,426,295.5Z;
+                                M419.5,293Q384,336,349.5,363.5Q315,391,265,441.5Q215,492,166.5,447.5Q118,403,65,361.5Q12,320,35,257Q58,194,101.5,161.5Q145,129,184,96.5Q223,64,268.5,86.5Q314,109,357.5,131Q401,153,428,201.5Q455,250,419.5,293Z;"
+                    >
+                    </animate>
+                </path>
+            </svg>
+        </div>
+        <div class="blob glow">
+            <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color: rgb(54, 196, 208);"></stop>
+                        <stop offset="100%" style="stop-color: rgb(3, 102, 102);"></stop>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#gradient)">
+                    <animate attributeName="d"
+                             dur="10000ms"
+                             repeatcount="indefinite"
+                             values="M416.5,294.5Q389,339,370,405.5Q351,472,285.5,465Q220,458,176.5,421.5Q133,385,105,343Q77,301,67,247Q57,193,92.5,151Q128,109,176,89Q224,69,277.5,70.5Q331,72,364,113.5Q397,155,420.5,202.5Q444,250,416.5,294.5Z;
+                            M419.5,293Q384,336,349.5,363.5Q315,391,265,441.5Q215,492,166.5,447.5Q118,403,65,361.5Q12,320,35,257Q58,194,101.5,161.5Q145,129,184,96.5Q223,64,268.5,86.5Q314,109,357.5,131Q401,153,428,201.5Q455,250,419.5,293Z;
+                            M426,295.5Q392,341,357.5,375.5Q323,410,272.5,427Q222,444,160.5,434Q99,424,63,370Q27,316,23.5,249.5Q20,183,80.5,153.5Q141,124,182,92Q223,60,283,53Q343,46,371,100Q399,154,429.5,202Q460,250,426,295.5Z;
+                            M463.76608,315.9833Q456.0103,381.96659,406.14783,431.82907Q356.28536,481.69154,291.70309,447.4833Q227.12082,413.27505,178.42288,401.35475Q129.72495,389.43444,117.40876,340.55526Q105.09257,291.67608,74.06814,240.53856Q43.04371,189.40103,95.22237,160.54113Q147.40103,131.68124,189.04113,121.44474Q230.68124,111.20824,284.92031,83.08484Q339.15938,54.96144,370.3599,103.84062Q401.56041,152.71979,436.54113,201.3599Q471.52185,250,463.76608,315.9833Z;
+                            M423.11376,308.64239Q431.5221,367.28478,380.25942,395.21032Q328.99673,423.13586,277.0221,422.0442Q225.04746,420.95254,176.40507,406.11866Q127.76268,391.28478,87.40181,350.33388Q47.04093,309.38297,51.09329,251.07283Q55.14566,192.76268,79.61703,137.56793Q104.08839,82.37317,164.16285,77.85108Q224.23732,73.32898,276.87971,75.0712Q329.5221,76.81341,366.21359,114.43044Q402.90507,152.04746,408.80525,201.02373Q414.70542,250,423.11376,308.64239Z;
+                            M416.5,294.5Q389,339,370,405.5Q351,472,285.5,465Q220,458,176.5,421.5Q133,385,105,343Q77,301,67,247Q57,193,92.5,151Q128,109,176,89Q224,69,277.5,70.5Q331,72,364,113.5Q397,155,420.5,202.5Q444,250,416.5,294.5Z"
+                    >
+                    </animate>
+                </path>
+            </svg>
+        </div>
+    </div>
+</section>
+
 <!-- Header com a barra de navegação fixa -->
 <header>
     <nav class="navbar">
         <ul class="lang-nav-links">
             <select class="language-select" id="translation">
                 <option class="language-option" value="en">English</option>
-                <option class="language-option" value="pt">Portuguese</option>
+                <option class="language-option" value="pt">Português</option>
+                <option class="language-option" value="es">Español</option>
+                <option class="language-option" value="it">Italiano</option>
+                <option class="language-option" value="de">Deutsch</option>
+                <option class="language-option" value="zh">汉语</option>
             </select>
         </ul>
         <ul class="sidebar">
@@ -69,31 +174,29 @@
                 Estou sempre em busca de superar limites e transformar ideias em projetos que unem técnica e criatividade.
             </p>
             <!-- Botão logo abaixo -->
-            <a href="portfolio.html" class="btn-portfolio" data-i18n-key="portfolio_button">Dê uma olhada no meu Portfolio</a>
+            <a href="#portfolio" class="btn-portfolio" data-i18n-key="portfolio_button">Dê uma olhada no meu Portfolio</a>
         </div>
     </section>
 
     <!-- Seção Meus Jogos Favoritos (não colapsável) -->
     <section id="jogos-favoritos" class="section-jogos">
+        <h2 class="section-heading" data-i18n-key="section_favorites_title">Meus Jogos Favoritos</h2>
         <div class="container">
-            <!-- Título destacado -->
-            <h2 class="section-title" data-i18n-key="section_favorites_title">Meus Jogos Favoritos</h2>
-
             <!-- Carrossel de fotos (automático, sem barra e looping infinito) -->
             <div class="carousel">
                 <div class="carousel-track">
                     <!-- Conjunto original -->
-                    <img src="assets/img/games/game1.png" alt="Jogo 1">
-                    <img src="assets/img/games/game2.png" alt="Jogo 2">
-                    <img src="assets/img/games/game3.png" alt="Jogo 3">
-                    <img src="assets/img/games/game4.png" alt="Jogo 4">
-                    <img src="assets/img/games/game5.png" alt="Jogo 5">
-                    <img src="assets/img/games/game6.png" alt="Jogo 6">
-                    <img src="assets/img/games/game7.png" alt="Jogo 7">
+                    <img src="assets/img/games/game1.png" alt="Jogo 1" class="games-img">
+                    <img src="assets/img/games/game2.png" alt="Jogo 2" class="games-img">
+                    <img src="assets/img/games/game3.png" alt="Jogo 3" class="games-img">
+                    <img src="assets/img/games/game4.png" alt="Jogo 4" class="games-img">
+                    <img src="assets/img/games/game5.png" alt="Jogo 5" class="games-img">
+                    <img src="assets/img/games/game6.png" alt="Jogo 6" class="games-img">
+                    <img src="assets/img/games/game7.png" alt="Jogo 7" class="games-img">
                     <!-- Duplicado para efeito de loop contínuo -->
-                    <img src="assets/img/games/game1.png" alt="Jogo 1">
-                    <img src="assets/img/games/game2.png" alt="Jogo 2">
-                    <img src="assets/img/games/game3.png" alt="Jogo 3">
+                    <img src="assets/img/games/game1.png" alt="Jogo 1" class="games-img">
+                    <img src="assets/img/games/game2.png" alt="Jogo 2" class="games-img">
+                    <img src="assets/img/games/game3.png" alt="Jogo 3" class="games-img">
                 </div>
             </div>
 
@@ -108,19 +211,19 @@
 
     <!-- Seção Curiosidades (não colapsável) -->
     <section id="curiosidades" class="section-curiosidades">
+        <h2 class="section-heading" data-i18n-key="section_curiosities_title">Curiosidades</h2>
         <div class="container">
             <!-- Título destacado -->
-            <h2 class="section-title" data-i18n-key="section_curiosities_title">Curiosidades</h2>
             <!-- Carrossel de fotos (Placeholder - insira seu código de carrossel aqui) -->
             <div class="carousel">
                 <div class="carousel-track-curiosidades">
-                    <img src="assets/img/curiosidades/curiosidade1.png" alt="Curiosidade 1">
-                    <img src="assets/img/curiosidades/curiosidade2.png" alt="Curiosidade 2">
-                    <img src="assets/img/curiosidades/curiosidade3.png" alt="Curiosidade 3">
-                    <img src="assets/img/curiosidades/curiosidade4.png" alt="Curiosidade 3">
-                    <img src="assets/img/curiosidades/curiosidade5.png" alt="Curiosidade 3">
-                    <img src="assets/img/curiosidades/curiosidade1.png" alt="Curiosidade 1">
-                    <img src="assets/img/curiosidades/curiosidade2.png" alt="Curiosidade 2">
+                    <img src="assets/img/curiosidades/curiosidade1.png" alt="Curiosidade 1" class="curiosidade-img">
+                    <img src="assets/img/curiosidades/curiosidade2.png" alt="Curiosidade 2" class="curiosidade-img">
+                    <img src="assets/img/curiosidades/curiosidade3.png" alt="Curiosidade 3" class="curiosidade-img">
+                    <img src="assets/img/curiosidades/curiosidade4.png" alt="Curiosidade 4" class="curiosidade-img">
+                    <img src="assets/img/curiosidades/curiosidade5.png" alt="Curiosidade 5" class="curiosidade-img">
+                    <img src="assets/img/curiosidades/curiosidade1.png" alt="Curiosidade 1" class="curiosidade-img">
+                    <img src="assets/img/curiosidades/curiosidade2.png" alt="Curiosidade 2" class="curiosidade-img">
                 </div>
             </div>
             <p data-i18n-key="curiosities_paragraph" data-i18n-key="curiosities_paragraph">
@@ -131,68 +234,110 @@
     </section>
 
     <!-- Qualificações -->
-    <section id="qualifications" class="section-sobre">
+    <section id="qualifications" class="section-default">
+        <h2 class="section-heading" data-i18n-key="section_qualifications_title">Qualificações</h2>
         <div class="container">
-            <h2 data-i18n-key="section_qualifications_title">Qualificações</h2>
             <ul style="list-style: disc; padding-left:1.5rem; text-align:left;">
-                <li>Conhecimento avançado em Game Design, documentação de código e engines (Unity, Unreal, Godot).</li>
-                <li>Programação orientada a objetos com C#, C++ e GDScript; controle de versão (Git, TortoiseSVN).</li>
-                <li>Habilidades intermediárias em level design, jogos mobile, modelagem 3D, Python, Java, C, bancos SQL e design de som.</li>
-                <li>Conhecimento básico em animação, pixel art, desenvolvimento web (HTML, CSS, JavaScript), edição de imagem e áudio.</li>
-                <li>Comunicação eficaz, inteligência emocional, liderança inspiradora e trabalho em equipe.</li>
-                <li>Metodologias ágeis (Scrum) e compromisso com aprendizado contínuo em tecnologias de jogos.</li>
+                <li data-i18n-key="qual_collaboration_documentation">
+                    <strong>Colaboração eficaz</strong> em equipes de desenvolvimento, com criação de <strong>documentação clara e acessível</strong>;
+                </li>
+                <li data-i18n-key="qual_unreal_cpp">
+                    <strong>Especialista em Unreal Engine 5 e C++</strong>, entregando soluções robustas e otimizadas;
+                </li>
+                <li data-i18n-key="qual_multiplayer">
+                    Implementação de sistemas multiplayer na UE5 usando <strong>OnlineSubsystem e Steam API</strong> para experiências P2P;
+                </li>
+                <li data-i18n-key="qual_communication">
+                    <strong>Comunicação clara e empática</strong>, facilitando o diálogo e a colaboração entre stakeholders;
+                </li>
+                <li data-i18n-key="qual_version_control">
+                    Proficiência em <strong>controle de versão (Git, TortoiseSVN)</strong> para gerenciamento confiável de código;
+                </li>
+                <li data-i18n-key="qual_multidisciplinary">
+                    Domínio de <strong>Game Design, level design, desenvolvimento mobile, bancos de dados e design de áudio</strong>;
+                </li>
+                <li data-i18n-key="qual_emotional_intelligence">
+                    <strong>Inteligência emocional elevada</strong>, liderança inspiradora e forte espírito de equipe;
+                </li>
+                <li data-i18n-key="qual_agile_learning">
+                    Experiência com <strong>metodologias ágeis (Scrum)</strong> e compromisso com <strong>aprendizado contínuo</strong> em tecnologias de jogos;
+                </li>
+                <li data-i18n-key="qual_english">
+                    <strong>Inglês Fluente</strong> com experiência de comunicação com nativos.
+                </li>
             </ul>
         </div>
     </section>
 
     <!-- Educação -->
-    <section id="education" class="section-sobre">
+    <section id="education" class="section-default">
+        <h2 class="section-heading" data-i18n-key="section_education_title">Formação</h2>
         <div class="container">
-            <h2 data-i18n-key="section_education_title">Formação</h2>
-            <div class="education-item" style="margin-bottom:1.5rem; text-align:left;">
-                <h3>Information Systems</h3>
-                <p>FIA – USP (Fev 2022 – Dez 2025)</p>
+            <div class="education-item" data-i18n-key="education_item1">
+                <img src="assets/img/education/logo-usp.png" alt="" data-i18n-key="education_item1_alt" class="education-icon">
+                <h3 data-i18n-key="education_item1_title">BSC in Information Systems</h3>
+                <p data-i18n-key="education_item1_desc">EACH – USP (Fev 2022 – Dez 2025)</p>
             </div>
-            <div class="education-item" style="margin-bottom:1.5rem; text-align:left;">
-                <h3>Fluent English</h3>
-                <p>WAY American High School (Nov 2017 – Dez 2020)</p>
+            <div class="education-item" data-i18n-key="education_item2">
+                <img src="assets/img/education/logo-way.png" alt="" data-i18n-key="education_item2_alt" class="education-icon">
+                <h3 data-i18n-key="education_item2_title">Fluent English</h3>
+                <p data-i18n-key="education_item2_desc">WAY American High School (Nov 2017 – Dez 2020)</p>
             </div>
-            <div class="education-item" style="text-align:left;">
-                <h3>Professional Game Design Course</h3>
-                <p>Microcamp Technology (Abr 2017 – Fev 2019)</p>
+            <div class="education-item" data-i18n-key="education_item3">
+                <img src="assets/img/education/logo-microcamp.jpg" alt="" data-i18n-key="education_item3_alt" class="education-icon">
+                <h3 data-i18n-key="education_item3_title">Professional Game Design Course</h3>
+                <p data-i18n-key="education_item3_desc">Microcamp Technology (Abr 2017 – Fev 2019)</p>
             </div>
         </div>
     </section>
 
+
     <!-- Portfolio -->
-    <section id="portfolio" class="section-sobre">
-        <div class="container">
-            <h2 data-i18n-key="section_portfolio_title">Portfolio</h2>
-            <div class="portfolio-item" style="margin-bottom:2rem; text-align:left;">
-                <h3>3D Horror Game Prototype</h3>
-                <p>Protótipo com mapas não euclidianos e corredores infinitos; sistemas de movimento avançado, coleta, sanidade e inventário.</p>
-                <a href="https://nikkasdev.itch.io" target="_blank">Ver no itch.io</a>
-            </div>
-            <div class="portfolio-item" style="margin-bottom:2rem; text-align:left;">
-                <h3>Devil’s Dance</h3>
-                <p>Top-down puzzle HD2D VHS, 2º lugar no GigaJam; inimigo com NavMesh e IA inteligente.</p>
-                <a href="https://nikkasdev.itch.io/devils-dance" target="_blank">Ver no itch.io</a>
-            </div>
-            <div class="portfolio-item" style="text-align:left;">
-                <h3>BitSouls</h3>
-                <p>RPG soulslike 2D com sistemas de inventário, fuga, estado e fogueira para respawn.</p>
-                <a href="https://nikkasdev.itch.io/bitsouls" target="_blank">Ver no itch.io</a>
-            </div>
+    <section id="portfolio" class="section-default">
+        <h2 class="section-heading" data-i18n-key="section_portfolio_title">Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item" data-i18n-key="portfolio_item10"><img src="assets/img/portfolio/logo-mpp.png" alt="" data-i18n-key="portfolio_item10_alt" class="portfolio-icon"><h3 data-i18n-key="portfolio_item10_title">Multiplayer Prototype</h3></p><p data-i18n-key="portfolio_item10_desc">Puzzle Plataformer multijogador pela Steam. Com física (caixas e plataformas) que se ajusta entre cliente - servidor com autenticação do servidor para mudanças. </p><a href="https://nicolasrisso.itch.io/multiplayer-prototype" target="_blank" data-i18n-key="portfolio_item10_cta">Ver no itch.io</a><div class="portfolio-meta">
+                <span class="meta-tool">Unreal Engine 5 - Windows</span>
+                <span class="meta-tool">Multiplayer</span>
+            </div></div>
+            <div class="portfolio-item" data-i18n-key="portfolio_item9"><img src="assets/img/portfolio/logo-DoP.png" alt="" data-i18n-key="portfolio_item9_alt" class="portfolio-icon"><h3 data-i18n-key="portfolio_item9_title">Dawn Of Piracy</h3><p data-i18n-key="portfolio_item9_desc">RPG de pirata inspirado em Black Flag. Com sistema de NPCs, Barcos, Pooling, Missões, Combate, Comércio e Navegação avançados.</p><a href="https://www.dawnofpiracy.com" target="_blank" data-i18n-key="portfolio_item9_cta">Ver no site oficial</a><div class="portfolio-meta">
+                <span class="meta-tool">Unreal Engine 5 - Windows</span>
+                <span class="meta-tool">Comercial Product</span>
+            </div></div>            
+            <div class="portfolio-item" data-i18n-key="portfolio_item1"><img src="assets/img/portfolio/logo-horror-prototype.png" alt="" data-i18n-key="portfolio_item1_alt" class="portfolio-icon"><h3 data-i18n-key="portfolio_item1_title">3D Horror Game Prototype</h3><p data-i18n-key="portfolio_item1_desc">Protótipo com mapas não euclidianos e corredores infinitos; sistemas de movimento avançado, coleta, sanidade e inventário.</p><a href="https://nikkasdev.itch.io" target="_blank" data-i18n-key="portfolio_item1_cta">Ver no itch.io</a><div class="portfolio-meta">
+                <span class="meta-tool">Unity - Windows</span>
+            </div></div>
+            <div class="portfolio-item" data-i18n-key="portfolio_item2"><img src="assets/img/portfolio/logo-devils-dance.png" alt="" data-i18n-key="portfolio_item2_alt" class="portfolio-icon"><h3 data-i18n-key="portfolio_item2_title">Devil’s Dance</h3><p data-i18n-key="portfolio_item2_desc">Top-down puzzle HD2D VHS, 2º lugar no GigaJam. Inimigo perseguidor com IA com estados avançada.</p><a href="https://nikkasdev.itch.io/devils-dance" target="_blank" data-i18n-key="portfolio_item2_cta">Ver no itch.io</a><div class="portfolio-meta">
+                <span class="meta-tool">Unity - Web, Windows</span>
+            </div></div>
+            <div class="portfolio-item" data-i18n-key="portfolio_item3"><img src="assets/img/portfolio/logo-bitsouls.png" alt="" data-i18n-key="portfolio_item3_alt" class="portfolio-icon"><h3 data-i18n-key="portfolio_item3_title">BitSouls</h3><p data-i18n-key="portfolio_item3_desc">RPG soulslike 2D com sistemas de inventário, fuga, boss fights e fogueira para respawn.</p><a href="https://nikkasdev.itch.io/bitsouls" target="_blank" data-i18n-key="portfolio_item3_cta">Ver no itch.io</a><div class="portfolio-meta">
+                <span class="meta-tool">Godot - Web, Windows</span>
+            </div></div>
+            <div class="portfolio-item" data-i18n-key="portfolio_item4"><img src="assets/img/portfolio/logo-avoider.png" alt="" data-i18n-key="portfolio_item4_alt" class="portfolio-icon"><h3 data-i18n-key="portfolio_item4_title">Avoider</h3><p data-i18n-key="portfolio_item4_desc">Runner Casual de níveis Mobile, com skins e easter eggs.</p><a href="https://nicolasrisso.itch.io/avoider" target="_blank" data-i18n-key="portfolio_item4_cta">Ver no itch.io</a><div class="portfolio-meta">
+                <span class="meta-tool">Unity - Mobile</span>
+            </div></div>
+            <div class="portfolio-item" data-i18n-key="portfolio_item5"><img src="assets/img/portfolio/logo-necroOmancer.jpg" alt="" data-i18n-key="portfolio_item5_alt" class="portfolio-icon"><h3 data-i18n-key="portfolio_item5_title">Necr'O Mancer</h3><p data-i18n-key="portfolio_item5_desc">Pixel Art vampiresurvivorslike 2D com mecânicas de necromância.</p><a href="https://nicolasrisso.itch.io/necroo-mancer" target="_blank" data-i18n-key="portfolio_item5_cta">Ver no itch.io</a><div class="portfolio-meta">
+                <span class="meta-tool">Unity - Web, Windows</span>
+            </div></div>
+            <div class="portfolio-item" data-i18n-key="portfolio_item6"><img src="assets/img/portfolio/logo-tower-defense-prototype.png" alt="" data-i18n-key="portfolio_item6_alt" class="portfolio-icon"><h3 data-i18n-key="portfolio_item6_title">Tower Defense Prototype</h3><p data-i18n-key="portfolio_item6_desc">Tower Defense 3D de câmera livre com foco em casual gameplay e relaxamento.</p><a href="https://nicolasrisso.itch.io/tower-defense-prototype" target="_blank" data-i18n-key="portfolio_item6_cta">Ver no itch.io</a><div class="portfolio-meta">
+                <span class="meta-tool">Unity - Web, Windows</span>
+            </div></div>
+            <div class="portfolio-item" data-i18n-key="portfolio_item7"><img src="assets/img/portfolio/logo-obstacle-assault.png" alt="" data-i18n-key="portfolio_item7_alt" class="portfolio-icon"><h3 data-i18n-key="portfolio_item7_title">Obstacle Assault</h3><p data-i18n-key="portfolio_item7_desc">Plataformer 3D feito inteiramente em C++ na UE5.</p><a href="https://nicolasrisso.itch.io/obstacle-assault" target="_blank" data-i18n-key="portfolio_item7_cta">Ver no itch.io</a><div class="portfolio-meta">
+                <span class="meta-tool">Unreal Engine 5 - Windows</span>
+            </div></div>
+            <div class="portfolio-item" data-i18n-key="portfolio_item8"><img src="assets/img/portfolio/logo-shop-prototype.png" alt="" data-i18n-key="portfolio_item8_alt" class="portfolio-icon"><h3 data-i18n-key="portfolio_item8_title">Shop Prototype</h3><p data-i18n-key="portfolio_item8_desc">Shop Simulator feito em 2 dias como desafio.</p><a href="https://nicolasrisso.itch.io/shop-prototype" target="_blank" data-i18n-key="portfolio_item8_cta">Ver no itch.io</a>      <div class="portfolio-meta">
+                <span class="meta-tool">Unity - Web, Windows</span>
+            </div></div>
         </div>
     </section>
-</main>
+
 
 </main>
 
 <!-- Seção de Contato (Footer) -->
 <footer>
     <section id="contato" class="section-contato">
-        <div class="container">
+        <div class="container-contato">
             <h2 data-i18n-key="contact_title">Contato</h2>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/nicolas-rissov" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -202,8 +347,12 @@
                 <a href="https://nicolasrisso.itch.io" target="_blank"><i class="fas fa-gamepad"></i></a>
                 <a href="https://wa.me/5511943357065" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
+            <h3>rissov.nicolas@gmail.com</h3>
         </div>
     </section>
+    <div class="dev-credit" data-i18n-key="dev_credit">
+        Desenvolvido por <strong>Nicolas Risso</strong>
+    </div>
 </footer>
 </body>
 </html>

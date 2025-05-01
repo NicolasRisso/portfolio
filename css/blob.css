@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --blob-background-color:linear-gradient(135deg, #011a20, #05343c);
+}
+
+.blob-section{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.blob-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    transition: transform 10s ease-in-out;
+}
+
+.blob {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.blob.glow {
+    filter: blur(50px);
+}
