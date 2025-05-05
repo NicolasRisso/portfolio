@@ -383,12 +383,16 @@ html {
 }
 
 .portfolio-grid {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    justify-content: center;
+    justify-items: center;
+    flex-wrap: wrap;
 }
 
 .portfolio-item {
+    flex: 0 1 250px;
     background: linear-gradient(
             135deg,
             rgba(54,196,208,0.7),
