@@ -141,10 +141,11 @@
             </select>
         </ul>
         <ul class="sidebar">
-            <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></a></li>
+            <li onclick=hideSidebar()><a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></a></li>
             <li><a href="#sobre-mim" data-i18n-key="nav_about">Sobre Mim</a></li>
             <li><a href="#qualifications" data-i18n-key="nav_qualifications">Qualificações</a></li>
             <li><a href="#education" data-i18n-key="nav_education">Formação</a></li>
+            <li><a href="#experience" data-i18n-key="nav_experience">Experience</a></li>
             <li><a href="#portfolio" data-i18n-key="nav_portfolio">Portfolio</a></li>
             <li><a href="#contato" data-i18n-key="nav_contact">Contato</a></li>
         </ul>
@@ -152,9 +153,10 @@
             <li class="hideOnMobile"><a href="#sobre-mim" data-i18n-key="nav_about">Sobre Mim</a></li>
             <li class="hideOnMobile"><a href="#qualifications" data-i18n-key="nav_qualifications">Qualificações</a></li>
             <li class="hideOnMobile"><a href="#education" data-i18n-key="nav_education">Formação</a></li>
+            <li class="hideOnMobile"><a href="#experience" data-i18n-key="nav_experience">Experience</a></li>
             <li class="hideOnMobile"><a href="#portfolio" data-i18n-key="nav_portfolio">Portfolio</a></li>
             <li class="hideOnMobile"><a href="#contato" data-i18n-key="contact">Contato</a></li>
-            <li onclick="showSidebar()" class="sidebar-hamburger"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M3 18h18v-2H3v2zM3 13h18v-2H3v2zM3 6v2h18V6H3z"/></svg></a></li>
+            <li onclick="showSidebar()" class="sidebar-hamburger"><a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M3 18h18v-2H3v2zM3 13h18v-2H3v2zM3 6v2h18V6H3z"/></svg></a></li>
         </ul>
     </nav>
     <script src="scripts/header.js"></script>
@@ -291,6 +293,67 @@
         </div>
     </section>
 
+    <!-- Experience -->
+    <section id="experience" class="section-default">
+        <h2 class="section-heading" data-i18n-key="section_experience_title">Professional Experience</h2>
+        <div class="container">
+            <div class="experience-item" data-i18n-key="experience_item1">
+                <img src="assets/img/experience/logo-ad.jpg" alt="" data-i18n-key="education_item1_alt" class="education-icon">
+                <h3 data-i18n-key="experience_item1_title">UE5 Junior Generalist Programmer</h3>
+                <p data-i18n-key="experience_item1_company">Advancement Design - Full Time</p>
+                <p data-i18n-key="experience_item1_desc">May 2024 - To This Moment</p>
+                <details class="exp-highlights">
+                    <summary data-i18n-key="highlights">Destaques</summary>
+                    <p data-i18n-key="highlights_item1">
+                        • <strong>Atributos</strong> para jogador, NPCs e barcos via <strong>GAS</strong> em C++.<br>
+                        • Lógica completa de barcos: <strong>aceleração</strong>, rotação de velas, simulação de vento e <strong>disparo de canhões</strong>.<br>
+                        • <strong>Subsystem de vento</strong> e de música por camadas, totalmente <strong>customizáveis</strong> pelos LDs.<br>
+                        • Pooling genérico de UObjects com <strong>criação sob demanda</strong> e <strong>descarte automático</strong>.<br>
+                        • Sistema de <strong>quests modular</strong> usando <strong>DataTables</strong> para estágios, objetivos e recompensas.<br>
+                        • <strong>IA de NPCs</strong> (passivo, neutro, agressivo) e <strong>reputação de facções</strong>.<br>
+                        • NPCs seguindo <strong>schedules</strong> e <strong>Points of Interest</strong>, com sequências de ações configuráveis.
+                    </p>
+                </details>
+            </div>
+            <div class="experience-item" data-i18n-key="experience_item2">
+                <img src="assets/img/experience/logo-hype.jpg" alt="" data-i18n-key="education_item1_alt" class="education-icon">
+                <h3 data-i18n-key="experience_item2_title">Gestor de Pessoas</h3>
+                <p data-i18n-key="experience_item2_company">Hype - Meio Período</p>
+                <p data-i18n-key="experience_item2_desc">Set 2022 - Mar 2024</p>
+                <details class="exp-highlights">
+                    <summary data-i18n-key="highlights">Destaques</summary>
+                    <p data-i18n-key="highlights_item3">
+                        • <strong>Gestão de bem-estar</strong> e <strong>saúde mental</strong> dos membros do grupo de estudos.<br>
+                        • <strong>Planejamento de eventos</strong> e encontros para fortalecer a <strong>comunidade</strong>.<br>
+                        • <strong>Mediação de conflitos</strong> e manutenção de um <strong>ambiente colaborativo</strong>.<br>
+                        • <strong>Feedback contínuo</strong> e acompanhamento do <strong>progresso individual</strong>.<br>
+                        • Aprendizado prático em <strong>análise de dados</strong>: <strong>Python</strong>, <strong>SQL</strong> e visualização de informações.
+                    </p>
+                </details>
+            </div>
+            <div class="experience-item" data-i18n-key="experience_item3">
+                <img src="assets/img/experience/logo-sintese.jpg" alt="" data-i18n-key="education_item1_alt" class="education-icon">
+                <h3 data-i18n-key="experience_item3_title">Gestor de Pessoas</h3>
+                <p data-i18n-key="experience_item3_company">Síntese Jr - Meio Período</p>
+                <p data-i18n-key="experience_item3_desc">Nov 2022 - Set 2023</p>
+                <h3 data-i18n-key="experience_item4_title">Desenvolvedor Web</h3>
+                <p data-i18n-key="experience_item4_company">Síntese Jr - Meio Período</p>
+                <p data-i18n-key="experience_item4_desc">Set 2022 - Nov 2022</p>
+                <h3 data-i18n-key="experience_item5_title">Trainee de Desenvolvimento Web</h3>
+                <p data-i18n-key="experience_item5_company">Síntese Jr - Meio Período</p>
+                <p data-i18n-key="experience_item5_desc">Mai 2022 - Set 2022</p>
+                <details class="exp-highlights">
+                    <summary data-i18n-key="highlights">Destaques</summary>
+                    <p data-i18n-key="highlights_item3">
+                        • Atuei como <strong>desenvolvedor web</strong> em empresa júnior, criando <strong>sites responsivos</strong>.<br>
+                        • Realizei a <strong>gestão de pessoas</strong>, promovendo <strong>bem-estar</strong> e saúde mental.<br>
+                        • Organizei <strong>gamificações</strong> e <strong>eventos internos</strong>, incluindo olimpíadas corporativas.<br>
+                        • Mediação de <strong>conflitos</strong> e suporte em rotinas de <strong>RH</strong>.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
 
     <!-- Portfolio -->
     <section id="portfolio" class="section-default">

@@ -358,7 +358,7 @@ main {
     }
 }
 
-@media(max-width: 900px) {
+@media(max-width: 1000px) {
     .hideOnMobile {
         display: none;
     }
@@ -442,6 +442,7 @@ html {
     padding: 1rem 0;       /* espaço acima e abaixo */
     /* opcional: sombra suave pra destacar mais */
     text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    z-index: 1;
 }
 
 /* garante que o container fique abaixo do título */
@@ -586,5 +587,149 @@ html, body {
     .education-icon{
         max-width: 150px;
         max-height: 150px;
+    }
+}
+
+/* Container em grid igual ao da Educação */
+#experience .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;              /* mesmo gap usado em #education */
+    margin-top: 2rem;       /* mesmo espaçamento após o título */
+}
+
+/* Itens de experiência: mesma aparência dos de educação */
+.experience-item {
+    padding: 20px;
+    padding-bottom: 5rem;
+    border-radius: 10px;
+    text-align: left;
+    background: linear-gradient(
+            135deg,
+            rgba(54, 196, 208, 0.4) 0%,
+            rgba(24, 150, 162, 0.4) 50%,
+            rgba(3, 102, 102, 0.4) 100%
+    );
+    /*backdrop-filter: blur(8px);*/
+    position: relative;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+}
+
+/* Ícone: centralizado e dimensionado */
+.experience-icon {
+    display: block;
+    margin: 0 auto 1rem;
+    width: 80px;   /* ajuste ao tamanho ideal */
+    height: auto;
+    object-fit: contain;
+}
+
+/* Títulos e textos dentro do item */
+.experience-item h3 {
+    margin: 0 0 .25rem;
+    font-size: 1.2rem;
+}
+.experience-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--white);
+}
+
+.exp-highlights {
+    position: absolute;
+    bottom: 1rem;
+    left:   1rem;
+    right:  1rem;
+    margin-top: auto;
+    width: auto;
+    z-index: 100;
+}
+
+/* 3. Ajustes no summary */
+.exp-highlights summary {
+    display: block;
+    background: linear-gradient(
+            135deg,
+            rgba(54, 196, 208, 1) 0%,
+            rgba(24, 150, 162, 1) 50%,
+            rgba(3, 102, 102, 1) 100%
+    );
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    list-style: none;
+}
+
+/* setinha, só para reforçar o visual */
+.exp-highlights summary::after {
+    content: " ▼";
+    float: right;
+    font-size: 0.9em;
+    color: var(--white);
+}
+.exp-highlights[open] summary::after {
+    content: " ▲";
+}
+
+/* 4. Texto dos destaques dentro do painel absoluto */
+.exp-highlights p {
+    position:absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0.5rem 0 0;
+    padding: 1rem;
+    background: linear-gradient(
+            135deg,
+            rgba(54, 196, 208, 1) 0%,
+            rgba(24, 150, 162, 1) 50%,
+            rgba(3, 102, 102, 1) 100%
+    );
+    color: var(--white);
+    font-size: 1rem;
+    line-height: 1.4;
+    border-radius: 0 0 8px 8px;
+}
+
+/* 5. No grid de cards, evite stretch vertical */
+#experience .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    align-items: start;
+}
+
+.exp-highlights summary,
+.exp-highlights p {
+    /* só pra reforçar contraste no texto */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+    z-index: 110;
+}
+
+.exp-highlights p::before {
+    content: "";
+    position: absolute;
+    inset: 0;                /* cobre todo o <p> */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: inherit;  /* mantém o mesmo rounding */
+    z-index: -1;             /* atrás do texto */
+}
+
+#experience {
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    #qualifications .container ul {
+        columns: 1;
+        column-gap: 1rem;  /* opcional, ajusta o espaçamento */
+        font-size: 0.9rem;
     }
 }
