@@ -77,5 +77,25 @@
   "portfolio_item10_alt": "Multiplayer Prototype Logo",
   "portfolio_item10_title": "Multiplayer Prototype",
   "portfolio_item10_desc": "Multiplayer-Plattformer-Puzzle über Steam. Mit Physik (Kisten und Plattformen), die zwischen Client und Server synchronisiert und serverseitig validiert wird.",
-  "portfolio_item10_cta": "Auf itch.io ansehen"
+  "portfolio_item10_cta": "Auf itch.io ansehen",
+
+  "nav_experience": "Erfahrung",
+  "section_experience_title": "Berufserfahrung",
+
+  "experience_item1_title": "UE5 Junior Generalist Programmierer",
+  "experience_item1_company": "Advancement Design – Vollzeit",
+  "experience_item1_desc": "Mai 2024 – Gegenwart",
+  "highlights_item1": "• <strong>Attribute</strong> für Spieler, NPCs und Schiffe mittels <strong>GAS</strong> in C++.<br>• Komplette Schiffslogik: <strong>Beschleunigung</strong>, Segeldrehung, Windsimulation und <strong>Kanonenabfeuerung</strong>.<br>• <strong>Windsystem</strong> und mehrschichtiges Musiksystem, vollständig anpassbar durch LDs.<br>• Generisches UObject-Pooling mit <strong>bedarfsgesteuerter Erstellung</strong> und <strong>automatischer Entsorgung</strong>.<br>• Modulares Quest-System mit <strong>DataTables</strong> für Phasen, Ziele und Belohnungen.<br>• <strong>NPC-KI</strong> (passiv, neutral, aggressiv) und <strong>Fraktionsruf</strong>.<br>• NPCs folgen <strong>Zeitplänen</strong> und <strong>Points of Interest</strong> mit konfigurierbaren Aktionssequenzen.",
+
+  "experience_item2_title": "Personalmanager",
+  "experience_item2_company": "Hype – Teilzeit",
+  "experience_item2_desc": "Sep 2022 – Mär 2024",
+  "highlights_item2": "• Verwaltung des <strong>Wohlbefindens</strong> und der <strong>psychischen Gesundheit</strong> der Studiengruppenteilnehmer.<br>• Planung von <strong>Veranstaltungen</strong> und Treffen zur Stärkung der Gemeinschaft.<br>• <strong>Vermittlung von Konflikten</strong> und Pflege einer kollaborativen Umgebung.<br>• Kontinuierliches <strong>Feedback</strong> und Verfolgung individueller Fortschritte.<br>• Praktisches Lernen in <strong>Datenanalyse</strong>: Python, SQL und Datenvisualisierung.",
+
+  "experience_item3_title": "Personalmanager",
+  "experience_item3_company": "Síntese Jr – Teilzeit",
+  "experience_item3_desc": "Nov 2022 – Sep 2023",
+  "highlights_item3": "• Als <strong>Webentwickler</strong> in einer Juniorfirma tätig und <strong>responsive Websites</strong> erstellt.<br>• <strong>Personalmanagement</strong> betrieben und das Wohlbefinden gefördert.<br>• <strong>Gamification</strong> und <strong>interne Events</strong> organisiert, inklusive Firmen-Olympiaden.<br>• <strong>Konflikte vermittelt</strong> und HR-Abläufe unterstützt.",
+
+  "highlights": "Höhepunkte"
 }

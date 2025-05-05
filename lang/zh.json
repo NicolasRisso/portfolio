@@ -77,5 +77,25 @@
   "portfolio_item10_alt": "多人原型徽标",
   "portfolio_item10_title": "多人原型",
   "portfolio_item10_desc": "通过 Steam 实现的多人平台解谜游戏。具有在客户端和服务器之间同步的物理（箱子和平台）以及服务器端验证功能。",
-  "portfolio_item10_cta": "在 itch.io 查看"
+  "portfolio_item10_cta": "在 itch.io 查看",
+
+  "nav_experience": "经验",
+  "section_experience_title": "专业经验",
+
+  "experience_item1_title": "UE5 初级通用程序员",
+  "experience_item1_company": "Advancement Design – 全职",
+  "experience_item1_desc": "2024年5月 – 至今",
+  "highlights_item1": "• 使用 <strong>GAS</strong> 用 C++ 为玩家、NPC 和船只创建 <strong>属性</strong>。<br>• 完整的船只逻辑：<strong>加速</strong>、帆旋转、风力模拟和<strong>炮击</strong>。<br>• <strong>风力子系统</strong> 和分层音乐系统，LD 可完全自定义。<br>• 通用 UObject 对象池，支持 <strong>按需创建</strong> 和 <strong>自动销毁</strong>。<br>• 使用 DataTables 的<strong>模块化任务系统</strong>，涵盖阶段、目标和奖励。<br>• <strong>NPC AI</strong>（被动、中立、主动）和阵营声望。<br>• NPC 跟随<strong>日程安排</strong>和<strong>兴趣点</strong>，可配置动作序列。",
+
+  "experience_item2_title": "人员管理",
+  "experience_item2_company": "Hype – 兼职",
+  "experience_item2_desc": "2022年9月 – 2024年3月",
+  "highlights_item2": "• 管理学习小组成员的<strong>身心健康</strong>。<br>• 规划<strong>活动</strong>和会议以增强<strong>社区凝聚力</strong>。<br>• <strong>调解冲突</strong>并维护协作环境。<br>• 提供<strong>持续反馈</strong>并跟踪个人进度。<br>• 在<strong>数据分析</strong>方面获得实战经验：Python、SQL 和数据可视化。",
+
+  "experience_item3_title": "网络开发人员",
+  "experience_item3_company": "Síntese Jr – 兼职",
+  "experience_item3_desc": "2022年11月 – 2023年9月",
+  "highlights_item3": "• 作为 <strong>Web 开发人员</strong> 在初创公司创建 <strong>响应式网站</strong>。<br>• 进行<strong>团队管理</strong>，促进身心健康。<br>• 组织<strong>游戏化活动</strong>和<strong>内部活动</strong>，包含公司奥运会。<br>• <strong>调解冲突</strong>并支持人力资源流程。",
+
+  "highlights": "亮点"
 }

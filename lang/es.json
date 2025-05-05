@@ -77,5 +77,25 @@
   "portfolio_item10_alt": "Logo Multiplayer Prototype",
   "portfolio_item10_title": "Multiplayer Prototype",
   "portfolio_item10_desc": "Puzzle de plataformas multijugador a través de Steam. Con física (cajas y plataformas) que se sincroniza entre cliente y servidor con validación en el servidor.",
-  "portfolio_item10_cta": "Ver en itch.io"
+  "portfolio_item10_cta": "Ver en itch.io",
+
+  "nav_experience": "Experiencia",
+  "section_experience_title": "Experiencia Profesional",
+
+  "experience_item1_title": "Programador Generalista Junior UE5",
+  "experience_item1_company": "Advancement Design – Jornada Completa",
+  "experience_item1_desc": "Mayo 2024 – Presente",
+  "highlights_item1": "• <strong>Atributos</strong> para jugador, NPC y barcos mediante <strong>GAS</strong> en C++.<br>• Lógica completa de barcos: <strong>aceleración</strong>, rotación de velas, simulación del viento y <strong>disparo de cañones</strong>.<br>• <strong>Sistema de viento</strong> y música por capas, totalmente <strong>personalizable</strong> por los LD.<br>• Pooling genérico de UObjects con <strong>creación bajo demanda</strong> y <strong>eliminación automática</strong>.<br>• Sistema de <strong>misiones modular</strong> con DataTables para fases, objetivos y recompensas.<br>• <strong>IA de NPC</strong> (pasivo, neutral, agresivo) y reputación de facciones.<br>• NPCs siguiendo <strong>horarios</strong> y <strong>Puntos de Interés</strong>, con secuencias de acciones configurables.",
+
+  "experience_item2_title": "Gestor de Personas",
+  "experience_item2_company": "Hype – Medio Tiempo",
+  "experience_item2_desc": "Sep 2022 – Mar 2024",
+  "highlights_item2": "• Gestión del <strong>bienestar</strong> y la <strong>salud mental</strong> de los miembros del grupo de estudio.<br>• Planificación de <strong>eventos</strong> y reuniones para fortalecer la <strong>comunidad</strong>.<br>• <strong>Mediación de conflictos</strong> y mantenimiento de un entorno colaborativo.<br>• <strong>Retroalimentación continua</strong> y seguimiento del progreso individual.<br>• Aprendizaje práctico en <strong>análisis de datos</strong>: Python, SQL y visualización de datos.",
+
+  "experience_item3_title": "Gestor de Personas",
+  "experience_item3_company": "Síntese Jr – Medio Tiempo",
+  "experience_item3_desc": "Nov 2022 – Sep 2023",
+  "highlights_item3": "• Como <strong>desarrollador web</strong> en una empresa junior, creé <strong>sitios responsive</strong>.<br>• Gestioné el <strong>equipo</strong>, promoviendo bienestar y salud mental.<br>• Organicé <strong>gamificaciones</strong> y <strong>eventos internos</strong>, incluidas olimpiadas corporativas.<br>• <strong>Medié conflictos</strong> y apoyé rutinas de RRHH.",
+
+  "highlights": "Destacados"
 }

@@ -77,6 +77,25 @@
   "portfolio_item10_alt": "Multiplayer Prototype Logo",
   "portfolio_item10_title": "Multiplayer Prototype",
   "portfolio_item10_desc": "Multiplayer platformer puzzle via Steam. With physics (boxes and platforms) that synchronize between client and server with server-side validation for changes.",
-  "portfolio_item10_cta": "View on itch.io"
+  "portfolio_item10_cta": "View on itch.io",
 
+  "nav_experience": "Experience",
+  "section_experience_title": "Professional Experience",
+
+  "experience_item1_title": "UE5 Junior Generalist Programmer",
+  "experience_item1_company": "Advancement Design – Full Time",
+  "experience_item1_desc": "May 2024 – Present",
+  "highlights_item1": "• <strong>Attributes</strong> for player, NPCs and ships using <strong>GAS</strong> in C++.<br>• Complete ship logic: <strong>acceleration</strong>, sail rotation, wind simulation and <strong>cannon firing</strong>.<br>• <strong>Wind subsystem</strong> and layered music system, fully customizable by LDs.<br>• Generic UObject pooling with <strong>on-demand creation</strong> and <strong>automatic disposal</strong>.<br>• Modular quest system using <strong>DataTables</strong> for stages, objectives and rewards.<br>• <strong>NPC AI</strong> (passive, neutral, aggressive) and <strong>faction reputation</strong>.<br>• NPCs following <strong>schedules</strong> and <strong>Points of Interest</strong>, with configurable action sequences.",
+
+  "experience_item2_title": "People Manager",
+  "experience_item2_company": "Hype – Part Time",
+  "experience_item2_desc": "Sep 2022 – Mar 2024",
+  "highlights_item2": "• Managed <strong>well-being</strong> and <strong>mental health</strong> of study group members.<br>• Planned <strong>events</strong> and meetings to strengthen the community.<br>• <strong>Mediated conflicts</strong> and maintained a collaborative environment.<br>• Provided <strong>continuous feedback</strong> and tracked individual progress.<br>• Hands-on learning in <strong>data analysis</strong>: Python, SQL and data visualization.",
+
+  "experience_item3_title": "People Manager",
+  "experience_item3_company": "Síntese Jr – Part Time",
+  "experience_item3_desc": "Nov 2022 – Sep 2023",
+  "highlights_item3": "• Acted as a <strong>web developer</strong> in a junior company, building <strong>responsive sites</strong>.<br>• Managed <strong>people</strong>, promoting well-being and mental health.<br>• Organized <strong>gamifications</strong> and <strong>internal events</strong>, including corporate olympiads.<br>• <strong>Mediated conflicts</strong> and supported HR routines.",
+
+  "highlights": "Highlights"
 }
