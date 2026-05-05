@@ -137,19 +137,6 @@
         .hover-bloom:hover {
             box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
         }
-        .glow-hover:hover {
-            box-shadow: 0px 0px 15px rgba(168, 85, 247, 0.4);
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #6f00be;
-            border-radius: 10px;
-        }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col relative">
@@ -159,7 +146,7 @@
 <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
 <!-- Brand -->
 <div class="font-['Space_Grotesk'] tracking-tight">
-<span class="text-xl font-bold text-slate-50 tracking-widest uppercase">RISSOPORTFOLIO</span>
+<span class="text-xl font-bold text-slate-50 tracking-widest uppercase">DevPortfolio</span>
 </div>
 <!-- Navigation Links -->
 <div class="hidden md:flex gap-8 items-center">
@@ -198,7 +185,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
 <!-- Card 1 -->
-<div onclick="openModal()" class="glass-surface rounded-xl overflow-hidden hover-bloom transition-all duration-300 group cursor-pointer flex flex-col">
+<div class="glass-surface rounded-xl overflow-hidden hover-bloom transition-all duration-300 group cursor-pointer flex flex-col">
 <div class="h-64 bg-surface-container-highest relative overflow-hidden">
 <img alt="Cyberpunk Game Engine" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 saturate-50 group-hover:saturate-100" data-alt="A highly detailed screenshot of a dark, rain-slicked cyberpunk city street rendered in a modern game engine. Neon lights reflect off puddles on the asphalt, casting deep electric purple and cool cyan hues across the scene. The lighting is dramatic and moody, emphasizing technical rendering features like ray-traced reflections and volumetric fog. The overall aesthetic is highly technical, polished, and tactical, aligning with a high-end dark mode portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4KEWKdgNlH4l4ezIXvDj12MDVFPWSonM4PFjD8DAFEATiAXmRv4D6bmyZE4_0-IyLeJ1Kr4Z4ywtK52DrgVBtEKoaKFWf5Ct-lOePWdBArHtJqPxmTaV0K0MPWtx57psyaHNJfsHyYFZIlQKnVlLqic5HzKTBVracKtutsfjCgeItAAio57eLAJGtdiKIcf768ftokxQSZEpBnNhaf4XyyXUuf_K11wfRuY6XouusNxlOzHgKwQ-rRb7GwtKdZiU55TDOOnCpWtR5"/>
 </div>
@@ -212,7 +199,7 @@
 </div>
 </div>
 <!-- Card 2 -->
-<div onclick="openModal()" class="glass-surface rounded-xl overflow-hidden hover-bloom transition-all duration-300 group cursor-pointer flex flex-col">
+<div class="glass-surface rounded-xl overflow-hidden hover-bloom transition-all duration-300 group cursor-pointer flex flex-col">
 <div class="h-64 bg-surface-container-highest relative overflow-hidden">
 <img alt="Tactical Strategy Interface" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 saturate-50 group-hover:saturate-100" data-alt="A close-up view of a complex, minimalist tactical strategy game interface projected onto a dark, grid-like surface. Geometric shapes and data nodes are connected by glowing electric purple lines, indicating unit movement and logic paths. The scene is lit by a soft, ambient rim light that highlights the structural rigidity of the UI elements. The mood is precise, analytical, and distinctly modern, fitting a game programmer's technical showcase." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB8CPceMgHki-xlJCz_Is2RxrxMMbJFUv5VRH853KTaMz1L4lpyU8NnxYFsgEXVV5i2Fw8-4J20vYN5xS8tguU5AAFVod8IuzepSl2Iib9PlH4x2Jj-9IIQQOZXRaWg-Op1JKx7DsxnZwv2JIciTnYIEDUYgh2MmpASEJa6H5UQ4PAFMM556Tvl74CRFpLmbcNWLpqOK2vduEw90aHtUQk526S4d2SV8EykI3xMFILpQfWgNmenHa5QLzqzx6vNKnn_Kfg1AFvSKxQ"/>
 </div>
@@ -226,30 +213,6 @@
 </div>
 </div>
 </div>
-</section>
-<!-- Portfolio: Personal Projects -->
-<section class="flex flex-col gap-lg" id="personal">
-<details class="group">
-<summary class="list-none cursor-pointer border-b border-outline-variant/30 pb-xs flex justify-between items-center outline-none [&::-webkit-details-marker]:hidden">
-<h3 class="font-h3 text-h3 text-on-surface">Personal Projects</h3>
-<span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-md mt-md">
-<!-- Card 1 -->
-<div onclick="openModal()" class="glass-surface rounded-xl overflow-hidden hover-bloom transition-all duration-300 group/card cursor-pointer flex flex-col">
-<div class="h-64 bg-surface-container-highest relative overflow-hidden flex items-center justify-center">
-<span class="material-symbols-outlined text-6xl text-primary-fixed-dim opacity-30 group-hover/card:opacity-100 group-hover/card:scale-110 transition-all duration-500">videogame_asset</span>
-</div>
-<div class="p-sm flex flex-col gap-base flex-grow">
-<h4 class="font-h3 text-h3 text-on-surface">Project: TBA</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">A stealth-action prototype focusing on advanced enemy AI and line-of-sight mechanics.</p>
-<div class="flex gap-xs mt-auto pt-sm">
-<span class="font-label-caps text-label-caps bg-surface-container px-2 py-1 rounded border border-secondary-container/50 text-secondary-container">Unreal Engine</span>
-</div>
-</div>
-</div>
-</div>
-</details>
 </section>
 <!-- Experience Timeline -->
 <section class="flex flex-col gap-lg" id="experience">
@@ -281,25 +244,6 @@
 </div>
 </div>
 </section>
-<!-- Education Timeline -->
-<section class="flex flex-col gap-lg" id="education">
-<div class="border-b border-outline-variant/30 pb-xs">
-<h3 class="font-h3 text-h3 text-on-surface">Education</h3>
-</div>
-<div class="flex flex-col gap-md border-l-2 border-surface-container-highest ml-xs pl-sm relative">
-<!-- Timeline Item 1 -->
-<div class="relative">
-<div class="absolute w-3 h-3 bg-secondary-container rounded-full -left-[23px] top-1.5 shadow-[0_0_10px_rgba(111,0,190,0.8)]"></div>
-<div class="flex flex-col gap-base">
-<div class="flex justify-between items-baseline flex-wrap gap-xs">
-<h4 class="font-h3 text-h3 text-on-surface">B.S. Computer Science <span class="text-primary-fixed-dim text-lg">@ University Name</span></h4>
-<span class="font-code-snippet text-code-snippet text-tertiary">2012 — 2016</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">Specialized in Computer Graphics and Game Engine Architecture. Graduated with Honors.</p>
-</div>
-</div>
-</div>
-</section>
 </main>
 <!-- Footer JSON Component -->
 <footer class="w-full py-12 border-t border-white/5 none bg-[#0A0510] relative overflow-hidden mt-auto">
@@ -308,11 +252,11 @@
 <div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto gap-8 relative z-10">
 <!-- Brand Logo -->
 <div class="text-lg font-black text-white font-['Space_Grotesk'] tracking-widest uppercase">
-<span class="material-symbols-outlined align-middle mr-2 text-purple-500">terminal</span>RISSOPORTFOLIO
+<span class="material-symbols-outlined align-middle mr-2 text-purple-500">terminal</span>DevPortfolio
             </div>
 <!-- Copyright -->
 <div class="font-['Space_Grotesk'] text-sm uppercase tracking-widest text-slate-500">
-                © 2024 Nicolas Risso. Built with Precision.
+                © 2024 Lead Game Programmer. Built with Precision.
             </div>
 <!-- Links -->
 <div class="flex gap-6">
@@ -323,147 +267,4 @@
 </div>
 </div>
 </footer>
-<!-- Project Modal Overlay / Backdrop -->
-<div id="project-modal" class="fixed inset-0 z-50 bg-surface-container-lowest/80 backdrop-blur-md items-center justify-center p-4 md:p-8 hidden">
-<!-- Modal Container -->
-<main class="relative w-full max-w-6xl max-h-[90vh] glass-surface shadow-2xl overflow-hidden flex flex-col md:flex-row rounded-lg" onclick="event.stopPropagation()">
-<!-- Close Button -->
-<button onclick="closeModal()" aria-label="Close Project Detail" class="absolute top-4 right-4 z-50 p-2 text-on-surface-variant hover:text-white transition-all duration-300 bg-black/20 rounded-full backdrop-blur-md border border-white/10 hover:bg-white/10 hover:border-white/30">
-<span class="material-symbols-outlined" data-icon="close">close</span>
-</button>
-<!-- Scrollable Content Wrapper -->
-<div class="flex flex-col md:flex-row w-full overflow-y-auto custom-scrollbar">
-<!-- Left Column: Media & Highlights -->
-<div class="w-full md:w-3/5 lg:w-2/3 border-r border-white/5 bg-surface-container-low/30">
-<!-- Cinematic Screenshot -->
-<div class="relative aspect-video overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="A cinematic 3D render of a futuristic cyberpunk cityscape at night, featuring glowing neon skyscrapers in deep purple and electric blue. The atmosphere is dense with volumetric fog and rain droplets catching the light. The visual style is highly technical with sharp digital artifacts and high-end raytraced reflections on wet surfaces, projecting a professional game engine portfolio aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL0ZanRBYJ2gw5oanImZnOkRYgZOcbwz9H6fcPNAE-DEBxtG4xwYi97bI0OzWMcAJmRS35qm-C3wgUY8NsOAIiJu7vPt9ar7qrgQLbXO6a8KPjQP5MzKBfXBVmsA3SjeD6l78rOpMsO9EKr53P0DXGs8O39EbvCum1Irpq4dDJlwlbCwY-7pFA55NgPZZdeUAqlt2z1bw-WlqIy0xIL7FIeST9fIRisB2dzlZCpd0mJNgrxn2ZEoTEXxiU4oJ4m9lmF1-KkbeXSGgE"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
-<div class="absolute bottom-6 left-8">
-<span class="font-label-caps text-label-caps text-secondary mb-2 block">Alpha Version 0.9.4</span>
-<h1 class="font-h1 text-h1 text-white tracking-tighter uppercase">Project: NEON DAWN</h1>
-</div>
-</div>
-<!-- Description Section -->
-<div class="p-8 space-y-8">
-<section>
-<h2 class="font-h2 text-h2 text-white mb-4 flex items-center gap-3">
-<span class="material-symbols-outlined text-secondary" data-icon="terminal">terminal</span>
-                                Technical Overview
-                            </h2>
-<div class="space-y-4 text-on-surface-variant font-body-lg leading-relaxed">
-<p>
-                                    Neon Dawn is a high-performance custom engine project built from the ground up to explore advanced 
-                                    rendering techniques and low-level hardware orchestration. The architecture emphasizes a 
-                                    <span class="text-secondary font-semibold">Data-Oriented Design (DOD)</span> approach using a 
-                                    proprietary ECS framework to maximize CPU cache efficiency and multi-core utilization.
-                                </p>
-<p>
-                                    The rendering pipeline utilizes a <span class="text-white">Clustered Forward+</span> architecture 
-                                    implemented via Vulkan 1.3, supporting thousands of dynamic light sources with minimal overhead. 
-                                    I developed a custom HLSL-to-SPIR-V transpilation toolchain to streamline shader development and 
-                                    enable complex post-processing effects including screen-space reflections and temporal anti-aliasing.
-                                </p>
-<p>
-                                    Optimization was a core pillar of development. Through rigorous profiling with NSight and Pix, 
-                                    I implemented a sub-allocator for GPU memory management and a sophisticated occlusion culling 
-                                    system that reduced draw calls by 64% in dense urban environments.
-                                </p>
-</div>
-</section>
-<!-- Code/Tech Specs Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-<div class="p-4 bg-white/5 border border-white/10 rounded">
-<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">Architecture</span>
-<span class="text-white font-medium">Multithreaded Task Graph</span>
-</div>
-<div class="p-4 bg-white/5 border border-white/10 rounded">
-<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">Target Platform</span>
-<span class="text-white font-medium">PC (Windows / Linux)</span>
-</div>
-<div class="p-4 bg-white/5 border border-white/10 rounded">
-<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">Physics Engine</span>
-<span class="text-white font-medium">Custom Rigid Body Solver</span>
-</div>
-<div class="p-4 bg-white/5 border border-white/10 rounded">
-<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">Memory Footprint</span>
-<span class="text-white font-medium">&lt; 1.2GB VRAM @ 4K</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Right Column: Meta & Actions -->
-<aside class="w-full md:w-2/5 lg:w-1/3 p-8 flex flex-col bg-surface-container-lowest/50">
-<!-- Tech Stack Section -->
-<div class="mb-10">
-<h3 class="font-label-caps text-label-caps text-outline uppercase tracking-widest mb-6 border-b border-white/5 pb-2">Core Technologies</h3>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-surface-container-highest border border-secondary/40 text-secondary text-xs font-bold rounded uppercase">C++ 20</span>
-<span class="px-3 py-1 bg-surface-container-highest border border-white/10 text-white text-xs font-bold rounded uppercase">Vulkan SDK</span>
-<span class="px-3 py-1 bg-surface-container-highest border border-white/10 text-white text-xs font-bold rounded uppercase">HLSL / SPIR-V</span>
-<span class="px-3 py-1 bg-surface-container-highest border border-white/10 text-white text-xs font-bold rounded uppercase">SIMD Optimization</span>
-<span class="px-3 py-1 bg-surface-container-highest border border-white/10 text-white text-xs font-bold rounded uppercase">Git / CMake</span>
-<span class="px-3 py-1 bg-surface-container-highest border border-white/10 text-white text-xs font-bold rounded uppercase">GLSL</span>
-</div>
-</div>
-<!-- Features List -->
-<div class="mb-10 flex-grow">
-<h3 class="font-label-caps text-label-caps text-outline uppercase tracking-widest mb-6 border-b border-white/5 pb-2">Key Contributions</h3>
-<ul class="space-y-4">
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-secondary text-lg mt-0.5" data-icon="check_circle">check_circle</span>
-<span class="text-on-surface text-sm">Real-time Global Illumination using voxel cone tracing.</span>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-secondary text-lg mt-0.5" data-icon="check_circle">check_circle</span>
-<span class="text-on-surface text-sm">Compute shader-based particle system handling 1M+ units.</span>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-secondary text-lg mt-0.5" data-icon="check_circle">check_circle</span>
-<span class="text-on-surface text-sm">Custom asset pipeline with hot-reloading for textures/shaders.</span>
-</li>
-</ul>
-</div>
-<!-- Action Links -->
-<div class="space-y-3">
-<a class="flex items-center justify-center gap-3 w-full py-4 bg-secondary text-on-secondary font-label-caps text-label-caps glow-hover transition-all duration-300 rounded border-t border-white/20" href="#">
-<span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span>
-                            Play Demo
-                        </a>
-<a class="flex items-center justify-center gap-3 w-full py-4 glass-surface text-white font-label-caps text-label-caps hover:bg-white/10 transition-all duration-300 rounded" href="#">
-<span class="material-symbols-outlined" data-icon="code">code</span>
-                            View GitHub Repo
-                        </a>
-<a class="flex items-center justify-center gap-3 w-full py-4 text-outline font-label-caps text-label-caps hover:text-secondary transition-all duration-300 group" href="#">
-<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="article">article</span>
-                            Technical Blog Post
-                        </a>
-</div>
-</aside>
-</div>
-</main>
-</div>
-
-<script>
-    function openModal() {
-        const modal = document.getElementById('project-modal');
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
-    
-    function closeModal() {
-        const modal = document.getElementById('project-modal');
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.style.overflow = 'auto'; // Restore scrolling
-    }
-    
-    // Close modal when clicking outside of it
-    document.getElementById('project-modal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeModal();
-        }
-    });
-</script>
 </body></html>
