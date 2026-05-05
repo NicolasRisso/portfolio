@@ -203,10 +203,8 @@
 <option value="de">Deutsch</option>
 </select>
 </div>
-<button class="text-purple-500 dark:text-purple-400 hover:bg-white/5 hover:text-purple-400 transition-all duration-300 p-2 rounded-full flex items-center justify-center relative overflow-hidden group border border-purple-500/30">
-<span class="material-symbols-outlined relative z-10 group-hover:text-white transition-colors">menu_book</span>
-<!-- Corner fold effect simulation via background manipulation -->
-<div class="absolute top-0 right-0 w-3 h-3 bg-white/20 origin-bottom-left rotate-45 transform translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform"></div>
+<button onclick="openWipModal()" class="text-purple-500 dark:text-purple-400 hover:bg-white/5 hover:text-purple-400 transition-all duration-300 p-2 rounded-full flex items-center justify-center relative overflow-hidden group border border-purple-500/30">
+<span class="material-symbols-outlined relative z-10 group-hover:text-white transition-colors">swords</span>
 </button>
 </div>
 </div>
@@ -252,7 +250,7 @@
 <img alt="Dawn of Piracy" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 saturate-50 group-hover:saturate-100" src="assets/img/comercial/DawnOfPiracy.jpg"/>
 </div>
 <div class="p-sm flex flex-col gap-base flex-grow">
-<h4 data-i18n-key="commercial.p2.title" class="font-h3 text-h3 text-on-surface">Dawn of Piracy: Caribbean Tides</h4>
+<h4 data-i18n-key="commercial.p2.title" class="font-h3 text-[1.1rem] sm:text-[1.3rem] md:text-h3 text-on-surface leading-tight">Dawn of Piracy: Caribbean Tides</h4>
 <p data-i18n-key="commercial.p2.desc" class="font-body-md text-body-md text-on-surface-variant">Unreal/C++ Pirate RPG focused on open-world exploration, ship battles, and seamless boarding.</p>
 <div class="flex flex-wrap gap-xs mt-auto pt-sm">
 <span class="font-label-caps text-label-caps bg-surface-container px-2 py-1 rounded border border-secondary-container/50 text-secondary-container">Unreal</span>
@@ -492,6 +490,16 @@
 </div>
 </div>
 </footer>
+<!-- WIP Modal Overlay -->
+<div id="wip-modal" class="fixed inset-0 z-[60] bg-surface-container-lowest/80 backdrop-blur-md items-center justify-center p-4 md:p-8 hidden" onclick="closeWipModal()">
+<main class="relative w-full max-w-sm glass-surface shadow-2xl overflow-hidden flex flex-col rounded-lg p-8 text-center border border-purple-500/30" onclick="event.stopPropagation()">
+<span class="material-symbols-outlined text-6xl text-purple-500 mb-4 animate-pulse">swords</span>
+<h2 class="font-h2 text-h2 text-white mb-2">Work in Progress</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Sorry, this feature is a WIP.</p>
+<button onclick="closeWipModal()" class="w-full py-3 bg-secondary text-on-secondary font-label-caps text-label-caps glow-hover transition-all duration-300 rounded">Close</button>
+</main>
+</div>
+
 <!-- Project Modal Overlay / Backdrop -->
 <div id="project-modal" class="fixed inset-0 z-50 bg-surface-container-lowest/80 backdrop-blur-md items-center justify-center p-4 md:p-8 hidden">
 <!-- Modal Container -->
@@ -637,6 +645,20 @@
             closeModal();
         }
     });
+
+    function openWipModal() {
+        const modal = document.getElementById('wip-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeWipModal() {
+        const modal = document.getElementById('wip-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+    }
 
     // Language Dropdown Logic
     function toggleLangDropdown() {
