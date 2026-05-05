@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const languageSelect = document.querySelector('select');
     const elements       = document.querySelectorAll('[data-i18n-key]');
 
-    async function setLanguage(lang) {
+    window.setLanguage = async function(lang) {
         try {
             const res = await fetch(`lang/${lang}.json`);
             if (!res.ok) throw new Error(`Não encontrou lang/${lang}.json`);
@@ -40,10 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // inicial
-    setLanguage(languageSelect.value || 'pt');
+    window.setLanguage(languageSelect ? languageSelect.value : 'en');
 
     // troca quando muda o select
-    languageSelect.addEventListener('change', e => {
-        setLanguage(e.target.value);
-    });
+    if (languageSelect) {
+        languageSelect.addEventListener('change', e => {
+            window.setLanguage(e.target.value);
+        });
+    }
 });

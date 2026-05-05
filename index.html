@@ -163,16 +163,46 @@
 </div>
 <!-- Navigation Links -->
 <div class="hidden md:flex gap-8 items-center">
-<a class="font-['Space_Grotesk'] tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/5 hover:text-purple-400 transition-all duration-300 px-3 py-1 rounded" href="#commercial">Commercial</a>
-<a class="font-['Space_Grotesk'] tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/5 hover:text-purple-400 transition-all duration-300 px-3 py-1 rounded" href="#personal">Personal</a>
-<a class="font-['Space_Grotesk'] tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/5 hover:text-purple-400 transition-all duration-300 px-3 py-1 rounded" href="#experience">Experience</a>
-<a class="font-['Space_Grotesk'] tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/5 hover:text-purple-400 transition-all duration-300 px-3 py-1 rounded" href="#education">Education</a>
+<a data-i18n-key="nav.commercial" class="font-['Space_Grotesk'] tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/5 hover:text-purple-400 transition-all duration-300 px-3 py-1 rounded-full" href="#commercial">Commercial</a>
+<a data-i18n-key="nav.personal" class="font-['Space_Grotesk'] tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/5 hover:text-purple-400 transition-all duration-300 px-3 py-1 rounded-full" href="#personal">Personal</a>
+<a data-i18n-key="nav.experience" class="font-['Space_Grotesk'] tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/5 hover:text-purple-400 transition-all duration-300 px-3 py-1 rounded-full" href="#experience">Experience</a>
+<a data-i18n-key="nav.education" class="font-['Space_Grotesk'] tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/5 hover:text-purple-400 transition-all duration-300 px-3 py-1 rounded-full" href="#education">Education</a>
 </div>
 <!-- Trailing Icons -->
 <div class="flex gap-4 items-center">
-<button class="text-purple-500 dark:text-purple-400 hover:bg-white/5 hover:text-purple-400 transition-all duration-300 p-2 rounded-full flex items-center justify-center">
+<div class="relative group" id="lang-dropdown-container">
+<button onclick="toggleLangDropdown()" class="text-purple-500 dark:text-purple-400 hover:bg-white/5 hover:text-purple-300 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] transition-all duration-300 p-2 rounded-full flex items-center justify-center border border-transparent hover:border-purple-500/30">
 <span class="material-symbols-outlined">translate</span>
 </button>
+<!-- Custom Dropdown Menu -->
+<div id="lang-dropdown-menu" class="absolute right-0 mt-3 w-40 bg-[#120B20]/90 backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_0_20px_rgba(168,85,247,0.4)] opacity-0 invisible translate-y-2 transition-all duration-300 z-50 border border-purple-500/50">
+    <div class="flex flex-col py-1">
+        <button onclick="selectLang('en')" class="flex items-center justify-between px-4 py-3 text-slate-300 hover:bg-purple-500/20 hover:text-white transition-all font-['Space_Grotesk'] text-sm tracking-wider uppercase border-b border-white/5 last:border-0 group/lang">
+            English
+            <span data-lang="en" class="lang-dot w-1.5 h-1.5 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(168,85,247,0.9)] opacity-0 group-hover/lang:opacity-100 transition-opacity !opacity-100"></span>
+        </button>
+        <button onclick="selectLang('pt')" class="flex items-center justify-between px-4 py-3 text-slate-300 hover:bg-purple-500/20 hover:text-white transition-all font-['Space_Grotesk'] text-sm tracking-wider uppercase border-b border-white/5 last:border-0 group/lang">
+            Português
+            <span data-lang="pt" class="lang-dot w-1.5 h-1.5 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(168,85,247,0.9)] opacity-0 group-hover/lang:opacity-100 transition-opacity"></span>
+        </button>
+        <button onclick="selectLang('es')" class="flex items-center justify-between px-4 py-3 text-slate-300 hover:bg-purple-500/20 hover:text-white transition-all font-['Space_Grotesk'] text-sm tracking-wider uppercase border-b border-white/5 last:border-0 group/lang">
+            Español
+            <span data-lang="es" class="lang-dot w-1.5 h-1.5 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(168,85,247,0.9)] opacity-0 group-hover/lang:opacity-100 transition-opacity"></span>
+        </button>
+        <button onclick="selectLang('de')" class="flex items-center justify-between px-4 py-3 text-slate-300 hover:bg-purple-500/20 hover:text-white transition-all font-['Space_Grotesk'] text-sm tracking-wider uppercase border-b border-white/5 last:border-0 group/lang">
+            Deutsch
+            <span data-lang="de" class="lang-dot w-1.5 h-1.5 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(168,85,247,0.9)] opacity-0 group-hover/lang:opacity-100 transition-opacity"></span>
+        </button>
+    </div>
+</div>
+<!-- Hidden Native Select for translator.js -->
+<select id="hidden-lang-select" class="hidden" aria-label="Select Language">
+<option value="en">English</option>
+<option value="pt">Português</option>
+<option value="es">Español</option>
+<option value="de">Deutsch</option>
+</select>
+</div>
 <button class="text-purple-500 dark:text-purple-400 hover:bg-white/5 hover:text-purple-400 transition-all duration-300 p-2 rounded-full flex items-center justify-center relative overflow-hidden group border border-purple-500/30">
 <span class="material-symbols-outlined relative z-10 group-hover:text-white transition-colors">menu_book</span>
 <!-- Corner fold effect simulation via background manipulation -->
@@ -185,16 +215,16 @@
 <main class="flex-grow pt-[100px] pb-xl px-gutter max-w-[1200px] mx-auto w-full flex flex-col gap-xl">
 <!-- Hero Section -->
 <section class="flex flex-col items-center justify-center min-h-[409px] text-center gap-md">
-<h1 class="font-h1 text-h1 text-on-surface">Lead Game Programmer</h1>
-<h2 class="font-h2 text-h2 text-primary-fixed-dim">Architecting Virtual Worlds</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-sm">
+<h1 data-i18n-key="hero.title" class="font-h1 text-h1 text-on-surface">Lead Game Programmer</h1>
+<h2 data-i18n-key="hero.subtitle" class="font-h2 text-h2 text-primary-fixed-dim">Architecting Virtual Worlds</h2>
+<p data-i18n-key="hero.description" class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-sm">
                 Specializing in high-performance engine architecture, rendering pipelines, and complex systems design for AAA and independent titles.
             </p>
 </section>
 <!-- Portfolio: Commercial Titles -->
 <section class="flex flex-col gap-lg" id="commercial">
 <div class="border-b border-outline-variant/30 pb-xs">
-<h3 class="font-h3 text-h3 text-on-surface">Commercial Titles</h3>
+<h3 data-i18n-key="section.commercial" class="font-h3 text-h3 text-on-surface">Commercial Titles</h3>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
 <!-- Card 1 -->
@@ -203,8 +233,8 @@
 <img alt="Cyberpunk Game Engine" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 saturate-50 group-hover:saturate-100" data-alt="A highly detailed screenshot of a dark, rain-slicked cyberpunk city street rendered in a modern game engine. Neon lights reflect off puddles on the asphalt, casting deep electric purple and cool cyan hues across the scene. The lighting is dramatic and moody, emphasizing technical rendering features like ray-traced reflections and volumetric fog. The overall aesthetic is highly technical, polished, and tactical, aligning with a high-end dark mode portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4KEWKdgNlH4l4ezIXvDj12MDVFPWSonM4PFjD8DAFEATiAXmRv4D6bmyZE4_0-IyLeJ1Kr4Z4ywtK52DrgVBtEKoaKFWf5Ct-lOePWdBArHtJqPxmTaV0K0MPWtx57psyaHNJfsHyYFZIlQKnVlLqic5HzKTBVracKtutsfjCgeItAAio57eLAJGtdiKIcf768ftokxQSZEpBnNhaf4XyyXUuf_K11wfRuY6XouusNxlOzHgKwQ-rRb7GwtKdZiU55TDOOnCpWtR5"/>
 </div>
 <div class="p-sm flex flex-col gap-base flex-grow">
-<h4 class="font-h3 text-h3 text-on-surface">Project: NEON DAWN</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Lead Engine Architecture. Implemented custom deferred rendering pipeline and optimized memory management for seamless open-world streaming.</p>
+<h4 data-i18n-key="commercial.p1.title" class="font-h3 text-h3 text-on-surface">Project: NEON DAWN</h4>
+<p data-i18n-key="commercial.p1.desc" class="font-body-md text-body-md text-on-surface-variant">Lead Engine Architecture. Implemented custom deferred rendering pipeline and optimized memory management for seamless open-world streaming.</p>
 <div class="flex gap-xs mt-auto pt-sm">
 <span class="font-label-caps text-label-caps bg-surface-container px-2 py-1 rounded border border-secondary-container/50 text-secondary-container">C++</span>
 <span class="font-label-caps text-label-caps bg-surface-container px-2 py-1 rounded text-on-surface-variant">Vulkan</span>
@@ -217,8 +247,8 @@
 <img alt="Tactical Strategy Interface" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 saturate-50 group-hover:saturate-100" data-alt="A close-up view of a complex, minimalist tactical strategy game interface projected onto a dark, grid-like surface. Geometric shapes and data nodes are connected by glowing electric purple lines, indicating unit movement and logic paths. The scene is lit by a soft, ambient rim light that highlights the structural rigidity of the UI elements. The mood is precise, analytical, and distinctly modern, fitting a game programmer's technical showcase." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB8CPceMgHki-xlJCz_Is2RxrxMMbJFUv5VRH853KTaMz1L4lpyU8NnxYFsgEXVV5i2Fw8-4J20vYN5xS8tguU5AAFVod8IuzepSl2Iib9PlH4x2Jj-9IIQQOZXRaWg-Op1JKx7DsxnZwv2JIciTnYIEDUYgh2MmpASEJa6H5UQ4PAFMM556Tvl74CRFpLmbcNWLpqOK2vduEw90aHtUQk526S4d2SV8EykI3xMFILpQfWgNmenHa5QLzqzx6vNKnn_Kfg1AFvSKxQ"/>
 </div>
 <div class="p-sm flex flex-col gap-base flex-grow">
-<h4 class="font-h3 text-h3 text-on-surface">Project: AEGIS PROTOCOL</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">AI &amp; Systems Programming. Developed multi-threaded pathfinding algorithms and dynamic behavior trees for hundreds of concurrent agents.</p>
+<h4 data-i18n-key="commercial.p2.title" class="font-h3 text-h3 text-on-surface">Project: AEGIS PROTOCOL</h4>
+<p data-i18n-key="commercial.p2.desc" class="font-body-md text-body-md text-on-surface-variant">AI &amp; Systems Programming. Developed multi-threaded pathfinding algorithms and dynamic behavior trees for hundreds of concurrent agents.</p>
 <div class="flex gap-xs mt-auto pt-sm">
 <span class="font-label-caps text-label-caps bg-surface-container px-2 py-1 rounded border border-secondary-container/50 text-secondary-container">C#</span>
 <span class="font-label-caps text-label-caps bg-surface-container px-2 py-1 rounded text-on-surface-variant">Unity DOTS</span>
@@ -231,7 +261,7 @@
 <section class="flex flex-col gap-lg" id="personal">
 <details class="group">
 <summary class="list-none cursor-pointer border-b border-outline-variant/30 pb-xs flex justify-between items-center outline-none [&::-webkit-details-marker]:hidden">
-<h3 class="font-h3 text-h3 text-on-surface">Personal Projects</h3>
+<h3 data-i18n-key="section.personal" class="font-h3 text-h3 text-on-surface">Personal Projects</h3>
 <span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
 </summary>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-md mt-md">
@@ -241,8 +271,8 @@
 <span class="material-symbols-outlined text-6xl text-primary-fixed-dim opacity-30 group-hover/card:opacity-100 group-hover/card:scale-110 transition-all duration-500">videogame_asset</span>
 </div>
 <div class="p-sm flex flex-col gap-base flex-grow">
-<h4 class="font-h3 text-h3 text-on-surface">Project: TBA</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">A stealth-action prototype focusing on advanced enemy AI and line-of-sight mechanics.</p>
+<h4 data-i18n-key="personal.p1.title" class="font-h3 text-h3 text-on-surface">Project: TBA</h4>
+<p data-i18n-key="personal.p1.desc" class="font-body-md text-body-md text-on-surface-variant">A stealth-action prototype focusing on advanced enemy AI and line-of-sight mechanics.</p>
 <div class="flex gap-xs mt-auto pt-sm">
 <span class="font-label-caps text-label-caps bg-surface-container px-2 py-1 rounded border border-secondary-container/50 text-secondary-container">Unreal Engine</span>
 </div>
@@ -254,7 +284,7 @@
 <!-- Experience Timeline -->
 <section class="flex flex-col gap-lg" id="experience">
 <div class="border-b border-outline-variant/30 pb-xs">
-<h3 class="font-h3 text-h3 text-on-surface">Professional Experience</h3>
+<h3 data-i18n-key="section.experience" class="font-h3 text-h3 text-on-surface">Professional Experience</h3>
 </div>
 <div class="flex flex-col gap-md border-l-2 border-surface-container-highest ml-xs pl-sm relative">
 <!-- Timeline Item 1 -->
@@ -262,10 +292,10 @@
 <div class="absolute w-3 h-3 bg-secondary-container rounded-full -left-[23px] top-1.5 shadow-[0_0_10px_rgba(111,0,190,0.8)]"></div>
 <div class="flex flex-col gap-base">
 <div class="flex justify-between items-baseline flex-wrap gap-xs">
-<h4 class="font-h3 text-h3 text-on-surface">Lead Programmer <span class="text-primary-fixed-dim text-lg">@ Void Studios</span></h4>
+<h4 data-i18n-key="exp.job1.title" class="font-h3 text-h3 text-on-surface">Lead Programmer <span class="text-primary-fixed-dim text-lg">@ Void Studios</span></h4>
 <span class="font-code-snippet text-code-snippet text-tertiary">2020 — PRESENT</span>
 </div>
-<p class="font-body-md text-body-md text-on-surface-variant">Directing a team of 12 engineers. Architecting core engine systems, establishing code standards, and managing technical debt for an unannounced AAA multiplayer title.</p>
+<p data-i18n-key="exp.job1.desc" class="font-body-md text-body-md text-on-surface-variant">Directing a team of 12 engineers. Architecting core engine systems, establishing code standards, and managing technical debt for an unannounced AAA multiplayer title.</p>
 </div>
 </div>
 <!-- Timeline Item 2 -->
@@ -273,10 +303,10 @@
 <div class="absolute w-3 h-3 bg-surface-container-highest border border-outline-variant rounded-full -left-[23px] top-1.5"></div>
 <div class="flex flex-col gap-base">
 <div class="flex justify-between items-baseline flex-wrap gap-xs">
-<h4 class="font-h3 text-h3 text-on-surface">Senior Graphics Programmer <span class="text-primary-fixed-dim text-lg">@ Nebula Games</span></h4>
+<h4 data-i18n-key="exp.job2.title" class="font-h3 text-h3 text-on-surface">Senior Graphics Programmer <span class="text-primary-fixed-dim text-lg">@ Nebula Games</span></h4>
 <span class="font-code-snippet text-code-snippet text-outline">2016 — 2020</span>
 </div>
-<p class="font-body-md text-body-md text-on-surface-variant">Implemented physically based rendering pipelines, custom shaders, and compute shader optimizations resulting in a 30% performance gain on current-gen consoles.</p>
+<p data-i18n-key="exp.job2.desc" class="font-body-md text-body-md text-on-surface-variant">Implemented physically based rendering pipelines, custom shaders, and compute shader optimizations resulting in a 30% performance gain on current-gen consoles.</p>
 </div>
 </div>
 </div>
@@ -284,7 +314,7 @@
 <!-- Education Timeline -->
 <section class="flex flex-col gap-lg" id="education">
 <div class="border-b border-outline-variant/30 pb-xs">
-<h3 class="font-h3 text-h3 text-on-surface">Education</h3>
+<h3 data-i18n-key="section.education" class="font-h3 text-h3 text-on-surface">Education</h3>
 </div>
 <div class="flex flex-col gap-md border-l-2 border-surface-container-highest ml-xs pl-sm relative">
 <!-- Timeline Item 1 -->
@@ -292,10 +322,10 @@
 <div class="absolute w-3 h-3 bg-secondary-container rounded-full -left-[23px] top-1.5 shadow-[0_0_10px_rgba(111,0,190,0.8)]"></div>
 <div class="flex flex-col gap-base">
 <div class="flex justify-between items-baseline flex-wrap gap-xs">
-<h4 class="font-h3 text-h3 text-on-surface">B.S. Computer Science <span class="text-primary-fixed-dim text-lg">@ University Name</span></h4>
+<h4 data-i18n-key="edu.degree1.title" class="font-h3 text-h3 text-on-surface">B.S. Computer Science <span class="text-primary-fixed-dim text-lg">@ University Name</span></h4>
 <span class="font-code-snippet text-code-snippet text-tertiary">2012 — 2016</span>
 </div>
-<p class="font-body-md text-body-md text-on-surface-variant">Specialized in Computer Graphics and Game Engine Architecture. Graduated with Honors.</p>
+<p data-i18n-key="edu.degree1.desc" class="font-body-md text-body-md text-on-surface-variant">Specialized in Computer Graphics and Game Engine Architecture. Graduated with Honors.</p>
 </div>
 </div>
 </div>
@@ -311,7 +341,7 @@
 <span class="material-symbols-outlined align-middle mr-2 text-purple-500">terminal</span>RISSOPORTFOLIO
             </div>
 <!-- Copyright -->
-<div class="font-['Space_Grotesk'] text-sm uppercase tracking-widest text-slate-500">
+<div data-i18n-key="footer.copy" class="font-['Space_Grotesk'] text-sm uppercase tracking-widest text-slate-500">
                 © 2024 Nicolas Risso. Built with Precision.
             </div>
 <!-- Links -->
@@ -465,5 +495,50 @@
             closeModal();
         }
     });
+
+    // Language Dropdown Logic
+    function toggleLangDropdown() {
+        const menu = document.getElementById('lang-dropdown-menu');
+        if (menu.classList.contains('opacity-0')) {
+            menu.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+            menu.classList.add('opacity-100', 'visible', 'translate-y-0');
+        } else {
+            menu.classList.add('opacity-0', 'invisible', 'translate-y-2');
+            menu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+        }
+    }
+    
+    function selectLang(val) {
+        const select = document.getElementById('hidden-lang-select');
+        select.value = val;
+        
+        if (window.setLanguage) {
+            window.setLanguage(val);
+        } else {
+            // Fallback for aggressively cached older script
+            select.dispatchEvent(new Event('change'));
+        }
+        
+        toggleLangDropdown(); // close menu
+        
+        // Update selection dots
+        document.querySelectorAll('.lang-dot').forEach(dot => {
+            if (dot.getAttribute('data-lang') === val) {
+                dot.classList.add('!opacity-100');
+            } else {
+                dot.classList.remove('!opacity-100');
+            }
+        });
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        const container = document.getElementById('lang-dropdown-container');
+        const menu = document.getElementById('lang-dropdown-menu');
+        if (container && !container.contains(e.target) && !menu.classList.contains('opacity-0')) {
+            toggleLangDropdown();
+        }
+    });
 </script>
+<script src="scripts/translator.js?v=2"></script>
 </body></html>
