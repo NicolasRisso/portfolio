@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.setLanguage = async function(lang) {
         try {
-            const res = await fetch(`lang/${lang}.json`);
+            const res = await fetch(`lang/${lang}.json?t=${Date.now()}`);
             if (!res.ok) throw new Error(`Não encontrou lang/${lang}.json`);
             const t = await res.json();
 
-            elements.forEach(el => {
-                const key = el.dataset.i18nKey;
-                if (!(key in t)) return;
+            document.querySelectorAll('[data-i18n-key]').forEach(el => {
+                const key = el.getAttribute('data-i18n-key');
+                if (!key || !(key in t)) return;
 
                 const txt = t[key];         // ex: "Olá, eu sou o {name}"
                 if (txt.includes('{name}')) {
